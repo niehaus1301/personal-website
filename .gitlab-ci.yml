@@ -38,7 +38,7 @@ build:
       policy: pull-push
   artifacts:
     paths:
-      - build/
+      - dist/
   script:
     - npm run build
     - npm prune --omit=dev --legacy-peer-deps
