@@ -1,7 +1,7 @@
 import resume from "./resume.json";
 import calculateAge from "../../utils/calulcateAge";
 
-const { name, email, phone, url } = resume.basics;
+const { name, email, phone, url, summary } = resume.basics;
 
 const linkedIn = resume.basics.profiles.find((e) => e.network === "LinkedIn");
 
@@ -26,6 +26,8 @@ export default {
       <strong>funfact</strong> - Returns a random fun fact about myself
       <br />
       <strong>doc</strong> - Opens a file version of my resume in a new tab
+      <br />
+      <strong>code</strong> - Opens the source code of this website in GitLab
       <br />
       <strong>clear</strong> - clears the console <br />
       <br />
@@ -57,6 +59,9 @@ export default {
       <a href={linkedIn?.url} target="_blank">
         {linkedIn?.username}
       </a>
+      <br />
+      <br />
+      {summary}
       <br />
     </span>
   ),
@@ -122,5 +127,13 @@ export default {
       1000
     );
     return "Opening my resume in a new tab...";
+  },
+
+  code: () => {
+    setTimeout(
+      () => window.open("https://gitlab.com/niehaus1301/resume-cli", "_blank"),
+      1000
+    );
+    return "Opening source code in a new tab...";
   },
 };
