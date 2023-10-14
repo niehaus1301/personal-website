@@ -1,7 +1,6 @@
 {
   "basics": {
     "name": "Leonard Niehaus",
-    "label": "Programmer",
     "image": "",
     "email": "niehaus.1301@gmail.com",
     "phone": "+491722458460",
@@ -26,54 +25,75 @@
         "Built a Next.js 13 app to automatically generate DSM matrices based on tools used in the flight physics department to showcase their dependencies, with features including a drag-and-drop JSON schema editor and OpenAPI export.",
         "Developing a modern Web API for a PostgreSQL database storing raw flight test time-series data in Python and Flask, as part of a large SAFe project with joint teams across Hamburg, Toulouse, UK and India. The API supports CRUD operations and endpoints for specific use cases."
       ]
-    }
-  ],
-  "volunteer": [
+    },
     {
-      "organization": "Organization",
-      "position": "Volunteer",
-      "url": "https://organization.com/",
-      "startDate": "2012-01-01",
-      "endDate": "2013-01-01",
-      "summary": "Description…",
-      "highlights": ["Awarded 'Volunteer of the Month'"]
+      "name": "CGI",
+      "position": "Senior Consultant",
+      "url": "https://cgi.com",
+      "startDate": "2019-11-01",
+      "endDate": "2023-05-31",
+      "highlights": [
+        "Founded, developed and launched CGI’s internal startup Door James, a visitor registration SaaS solution to replace paper lists at reception (later transitioned to asset booking and office management solution due to COVID demands).",
+        "Developed and deployed a multi-cloud architecture for Door James (GCP & IONOS) to attract clients needing sovereign cloud options. Dockerized application to allow easier deployment to cloud providers. Moved from Google Cloud Build to GitLab CI/CD.",
+        "Traveled to multiple international clients to pitch Door James and launch trials (20+ external clients when left role).",
+        "Designed concept and coordinated development to extend Door James by an event management and ticketing platform. Flawlessly managed ticketing, registration and badge-printing at multiple in-person events with 500+ attendees each.",
+        "Created a Google Data Studio connector using Google Apps Script and MongoDB Atlas Data API to allow a BI team to build dashboards with Door James userdata.",
+        "Held talks externally and internally to share key learnings of Door James product development journey, with a strong focus on how to maintain a great balance.",
+        "Organized events on Meetup.com to increase CGIs presence in the local tech scene.",
+        "Pitched Door James in multiple c-level calls, and worked extensively with the CIO office to have Door James become CGIs global asset booking solution (now rolled out in 100+ offices with 35k users).",
+        "Actively contributed to backend code (Node.js, TypeScript, Mongoose, Express), infrastructure on GCP (App Engine, Cloud Functions, Compute Engine, Load Balancer, Cloud Storage), architecture and concepts for Door James.",
+        "Developed a retail customer journey for CGIs booth at Euroshop 2020. Connected dynamic e-ink price tags to programmatically adjust prices based on customers' food preference. Implemented a stock picking demo-case with Firebase Firestore and Hosting."
+      ]
+    },
+    {
+      "name": "Ampool",
+      "position": "Cloud Engineer Intern",
+      "url": "https://ampool.com",
+      "startDate": "2019-08-01",
+      "endDate": "2019-10-31",
+      "highlights": [
+        "Ensured compatibility of Ampool’s data analytics software with GCP.",
+        "Demonstrated functionality by creating multiple environments that involve large datasets on BigQuery and Microsoft SQL Server to be analyzed."
+      ]
+    },
+    {
+      "name": "Cititec Systems",
+      "position": "Intern",
+      "url": "https://cititec.com.au",
+      "startDate": "2018-06-01",
+      "endDate": "2018-07-31",
+      "highlights": [
+        "Planned, designed and launched a new company website on WordPress.",
+        "Worked on a ticket system based on PHP & MySQL."
+      ]
     }
   ],
   "education": [
     {
-      "institution": "University",
-      "url": "https://institution.com/",
-      "area": "Software Development",
-      "studyType": "Bachelor",
-      "startDate": "2011-01-01",
-      "endDate": "2013-01-01",
-      "score": "4.0",
-      "courses": ["DB1101 - Basic SQL"]
-    }
-  ],
-  "awards": [
-    {
-      "title": "Award",
-      "date": "2014-11-01",
-      "awarder": "Company",
-      "summary": "There is no spoon."
+      "institution": "College for Technology and IT, Neuss, Germany",
+      "url": "https://www.bti-neuss.de/?lang=en",
+      "area": "IT",
+      "studyType": "High School",
+      "startDate": "2017-09-01",
+      "endDate": "2020-03-31",
+      "highlights": [
+        "Earned an excellent high school diploma and completed professional training to become a recognized IT assistant.",
+        "This includes advanced knowledge in IT subjects such as Networking, Programming & Databases."
+      ]
     }
   ],
   "certificates": [
     {
-      "name": "Certificate",
-      "date": "2021-11-07",
-      "issuer": "Company",
-      "url": "https://certificate.com"
-    }
-  ],
-  "publications": [
+      "name": "Google Cloud Associate Cloud Engineer",
+      "date": "2021-01-01",
+      "issuer": "Google",
+      "url": "https://cloud.google.com/certification/cloud-engineer/"
+    },
     {
-      "name": "Publication",
-      "publisher": "Company",
-      "releaseDate": "2014-10-01",
-      "url": "https://publication.com",
-      "summary": "Description…"
+      "name": "Plesk Onyx Professional",
+      "date": "2018-10-01",
+      "issuer": "Plesk University",
+      "url": "https://plesk.com/onyx/professional-certification/"
     }
   ],
   "skills": [
@@ -88,28 +108,6 @@
     {
       "language": "English",
       "fluency": "Native speaker"
-    }
-  ],
-  "interests": [
-    {
-      "name": "Wildlife",
-      "keywords": ["Ferrets", "Unicorns"]
-    }
-  ],
-  "references": [
-    {
-      "name": "Jane Doe",
-      "reference": "Reference…"
-    }
-  ],
-  "projects": [
-    {
-      "name": "Project",
-      "startDate": "2019",
-      "endDate": "2021-01-01",
-      "description": "Description...",
-      "highlights": ["Won award at AIHacks 2016"],
-      "url": "https://project.com/"
     }
   ]
 }
