@@ -70,7 +70,7 @@
   ],
   "education": [
     {
-      "institution": "College for Technology and IT, Neuss, Germany",
+      "institution": "College for Technology and IT",
       "url": "https://www.bti-neuss.de/?lang=en",
       "area": "IT",
       "studyType": "High School",
@@ -106,8 +106,17 @@
   ],
   "languages": [
     {
+      "language": "German",
+      "fluency": "Native"
+    },
+    {
       "language": "English",
-      "fluency": "Native speaker"
+      "fluency": "Fluent"
     }
+  ],
+  "funfacts": [
+    "I wear multiple NFC-microchip implants in my hands, including a credit card",
+    "Traveled to 70 countries",
+    "When I was a kid, I've built a flight simulator in my basement. As the cockpit didn't follow any existing aircraft due to budget constraints, I've decideded to call it the Airbus A370 :P (this aircraft doesn't exist)."
   ]
 }
