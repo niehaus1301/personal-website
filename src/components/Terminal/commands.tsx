@@ -7,6 +7,16 @@ const linkedIn = resume.basics.profiles.find((e) => e.network === "LinkedIn");
 
 const yearsOld = calculateAge(new Date("2001-07-13"));
 
+const availableCommands: { [command: string]: string } = {
+  info: "Lists basic details about myself",
+  work: "List my experience",
+  "work <#>": "Show details about a particular experience",
+  funfact: "Returns a random fun fact about myself",
+  doc: "Opens a file version of my resume in a new tab",
+  code: "Opens the source code of this website in GitLab",
+  clear: "clears the console",
+};
+
 export default {
   help: (
     <span>
@@ -15,21 +25,12 @@ export default {
       @niehaus1301. <br />
       To get started, enter one of the following commands and press enter:
       <br />
-      <br />
-      <strong>info</strong> - Lists basic details about myself
-      <br />
-      <strong>work</strong> - List my experience
-      <br />
-      <strong>work &lt;#&gt;</strong> - Show details about a particular
-      experience
-      <br />
-      <strong>funfact</strong> - Returns a random fun fact about myself
-      <br />
-      <strong>doc</strong> - Opens a file version of my resume in a new tab
-      <br />
-      <strong>code</strong> - Opens the source code of this website in GitLab
-      <br />
-      <strong>clear</strong> - clears the console <br />
+      {Object.keys(availableCommands).map((command) => (
+        <span>
+          <br />
+          <strong>{command}</strong> - {availableCommands[command]}
+        </span>
+      ))}
       <br />
     </span>
   ),
@@ -98,9 +99,9 @@ export default {
             <span>
               <strong>{`[${i}]`}</strong> <u>{name}</u> | {position} |{" "}
               {startDate} - {endDate}
+              <br />
             </span>
           ))}
-          <br />
           <br />
           To view details about a particular experience enter: "
           <strong>work &lt;#&gt;</strong>"
