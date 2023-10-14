@@ -1,7 +1,7 @@
 variables:
-  GOOGLE_APPLICATION_CREDENTIALS: ${GCP_SERVICE_ACCOUNT_KEY}
+  GOOGLE_APPLICATION_CREDENTIALS:
   CI: "false"
-  GCP_PROJECT: "leonard-niehaus"
+  GCP_PROJECT: ${GCP_PROJECT}
 
 stages:
   - install
