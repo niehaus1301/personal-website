@@ -98,7 +98,7 @@ export default {
         <span>
           <br />
           {resume.work.map(({ name, position, startDate, endDate }, i) => (
-            <span>
+            <span key={i}>
               <strong>{`[${i}]`}</strong> <u>{name}</u> | {position} |{" "}
               {startDate} - {endDate}
               <br />
@@ -144,8 +144,8 @@ export default {
             </u>
             <br />
             <br />
-            {highlights.map((highlight) => (
-              <span>
+            {highlights.map((highlight, i) => (
+              <span key={i}>
                 - {highlight}
                 <br />
               </span>
@@ -159,7 +159,7 @@ export default {
           <br />
           {resume.education.map(
             ({ institution, studyType, startDate, endDate }, i) => (
-              <span>
+              <span key={i}>
                 <strong>{`[${i}]`}</strong> <u>{institution}</u> | {studyType} |{" "}
                 {startDate} - {endDate}
                 <br />
