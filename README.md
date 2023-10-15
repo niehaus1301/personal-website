@@ -1,27 +1,15 @@
-# React + TypeScript + Vite
+# Leonard Niehaus Resume CLI Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the source code of my resume in a form of a cli. The project is hosted on my personal website [niehaus.dev](https://niehaus.dev).
 
-Currently, two official plugins are available:
+## Tech stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The following technologies/frameworks have been used to build this project
 
-## Expanding the ESLint configuration
+- [React](https://www.npmjs.com/package/react)
+- [Firebase](https://firebase.google.com/) for hosting
+- GitLab CI/CD for continuous deployment
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Following standards
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+The CLI dynamically reads all resume information from a JSON file, which follows the [JSON Resume standard](https://jsonresume.org/). The resume JSON file can be found [here](/src/components/Terminal/resume.json).
