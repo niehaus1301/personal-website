@@ -9,14 +9,14 @@ stages:
   - deploy
   - test
 
-image: node:20
+image: oven/bun:latest
 
 install:
   stage: install
   cache:
     - key: NPM_DOWNLOAD_CACHE
       paths:
-        - .npm/
+        - .bun/
       when: on_success
       policy: pull-push
     - key: NODE_MODULES_${CI_PIPELINE_ID}
@@ -25,7 +25,7 @@ install:
       when: on_success
       policy: push
   script:
-    - npm ci --cache .npm --prefer-offline --legacy-peer-deps
+    - bun install --frozen-lockfile --cache .bun --prefer-offline --legacy-peer-deps
 
 build:
   stage: build
@@ -40,8 +40,8 @@ build:
     paths:
       - dist/
   script:
-    - npm run build
-    - npm prune --omit=dev --legacy-peer-deps
+    - bun run build
+    # - bun run prune --omit=dev --legacy-peer-deps
 
 deploy:
   stage: deploy
