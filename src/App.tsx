@@ -1,49 +1,26 @@
-import Typography from "@mui/joy/Typography";
-import Grid from "@mui/joy/Grid";
-import "./App.css";
-import Terminal from "./components/Terminal/Terminal";
-import Box from "@mui/joy/Box";
+import { useEffect, useState } from "react";
+import SplineLoader from "@splinetool/loader";
+import CanvasScene from "./CanvasScene";
+import LoadingSceen from "./components/LoadingScreen/LoadingScreen";
+import { Scene } from "three";
+
+const loader = new SplineLoader();
 
 export default function App() {
-  return (
-    <Grid
-      container
-      direction="column"
-      justifyContent="center"
-      alignItems="center"
-      rowSpacing={5}
-    >
-      <Grid>
-        <Typography
-          level="h1"
-          width="none"
-          sx={{
-            color: "white",
-            backgroundColor: "blue",
-            padding: 1,
-            borderRadius: 10,
-            marginTop: "1vh",
-          }}
-        >
-          Leonard Niehaus
-        </Typography>
-      </Grid>
-      <Grid>
-        <Box sx={{ height: "60vh", width: "60vw" }}>
-          <Terminal />
-        </Box>
-      </Grid>
-      <Grid>
-        <Typography level="body-md" textAlign="center">
-          Trouble using my resume? <br />
-          <a
-            href="https://docs.google.com/document/d/1PrNXuOxpr_sHql20tGmEgSevfjy5RzVB3ACiyHLZOnQ/view"
-            target="_blank"
-          >
-            View document version
-          </a>
-        </Typography>
-      </Grid>
-    </Grid>
+  const [scene, setScene] = useState<Scene>();
+  const [progress, setProgress] = useState<number>(0);
+
+  useEffect(() => {
+    loader.load(
+      import.meta.env.VITE_SPLINE_URL,
+      setScene,
+      ({ loaded, total }) => setProgress((loaded / total) * 100)
+    );
+  }, []);
+
+  return scene ? (
+    <CanvasScene scene={scene} />
+  ) : (
+    <LoadingSceen value={progress} />
   );
 }
