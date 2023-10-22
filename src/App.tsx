@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import SplineLoader from "@splinetool/loader";
-import CanvasScene from "./CanvasScene";
+import AppCanvas from "./AppCanvas";
 import LoadingSceen from "./components/LoadingScreen/LoadingScreen";
 import { Scene } from "three";
 
@@ -19,7 +19,7 @@ export default function App() {
   }, []);
 
   return scene ? (
-    <CanvasScene scene={scene} />
+    <AppCanvas scene={scene} />
   ) : (
     <LoadingSceen value={progress} />
   );
