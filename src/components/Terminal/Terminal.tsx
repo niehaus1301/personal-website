@@ -9,6 +9,7 @@ export default function App() {
     <ReactTerminal
       commands={commands}
       theme="material-dark"
+      showControlBar={false}
       welcomeMessage={
         <span>
           Welcome to resume-cli version {yearsOld}-sinceborn developed by

@@ -1,17 +1,18 @@
-import { CycleRaycast, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useState } from "react";
-import { PCFShadowMap, Scene } from "three";
-import Screen from "./Screen";
+import { PCFShadowMap, Scene, Vector3 } from "three";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
+import CanvasContent from "./CanvasContent";
 
 interface Props {
-  scene: Scene;
+  splineScene: Scene;
 }
 
-export default function AppCanvas({ scene }: Props) {
-  const obj = scene.getObjectByName("Screen")!;
+export default function AppCanvas({ splineScene }: Props) {
   const [loaded, setLoaded] = useState<boolean>(false);
+
+  const screen = splineScene.getObjectByName("Screen");
+  if (screen) screen.visible = false;
 
   return (
     <>
@@ -27,19 +28,10 @@ export default function AppCanvas({ scene }: Props) {
           position: [400, 400, 400],
           type: "PerspectiveCamera",
           far: 2000,
+          fov: 50,
         }}
       >
-        <primitive
-          object={scene}
-          onPointerOver={(event) => console.log(event)}
-        />
-        <CycleRaycast
-          // keyCode={}
-          onChanged={(obj, number) => console.log("rc", obj, number)} // Optional onChanged event
-        />
-        <directionalLight position={[140, 300, 28]} />
-        <OrbitControls maxDistance={1000} />
-        <Screen targetObj={obj} />
+        <CanvasContent splineScene={splineScene} />
       </Canvas>
     </>
   );
