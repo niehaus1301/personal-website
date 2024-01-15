@@ -1,19 +1,26 @@
 import { ReactTerminal, TerminalContextProvider } from "react-terminal";
 import commands from "./commands";
 import calculateAge from "./utils";
-import { CSSProperties } from "react";
+import { Stack, Typography } from "@mui/material";
+import TerminalLink from "./TerminalLink";
 
 interface Props {
   exit: () => void;
-  style?: CSSProperties;
 }
 
-export default function App({ exit, style }: Props) {
+export default function Terminal({ exit }: Props) {
   const yearsOld = calculateAge(new Date("2001-07-13"));
 
   return (
     <TerminalContextProvider>
-      <div style={{ ...(style || {}), height: "100%", width: "100%" }}>
+      <Stack
+        direction="column"
+        justifyContent="flex-end"
+        alignItems="stretch"
+        height="100%"
+        width="100%"
+        sx={{ backgroundColor: "rgb(21, 21, 21)" }}
+      >
         <ReactTerminal
           commands={{ ...commands, exit }}
           theme="material-dark"
@@ -35,7 +42,19 @@ export default function App({ exit, style }: Props) {
             </span>
           }
         />
-      </div>
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          padding={1}
+          width="100%"
+        >
+         <TerminalLink onClick={exit}>Exit</TerminalLink>
+         <TerminalLink onClick={() => window.open(
+          "https://docs.google.com/document/d/1PrNXuOxpr_sHql20tGmEgSevfjy5RzVB3ACiyHLZOnQ/view",
+          "_blank"
+        )}>Open as Doc^</TerminalLink>
+        </Stack>
+      </Stack>
     </TerminalContextProvider>
   );
 }

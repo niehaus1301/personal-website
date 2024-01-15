@@ -16,6 +16,7 @@ const availableCommands: { [command: string]: string } = {
   funfact: "Returns a random fun fact about myself",
   doc: "Opens a file version of my resume in a new tab",
   code: "Opens the source code of this website in GitLab",
+  exit: "Go back to my room",
   clear: "clears the console",
 };
 
