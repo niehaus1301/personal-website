@@ -1,39 +1,36 @@
 import { Application } from "@splinetool/runtime";
 import { Suspense, lazy, useEffect, useState } from "react";
 import Terminal from "./components/Terminal/Terminal";
-import { TerminalContextProvider } from "react-terminal";
 import Fade from "@mui/material/Fade";
 import Box from "@mui/material/Box";
 import Loading from "./components/Loading";
+import { SplineEvent } from "@splinetool/react-spline";
 
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
 export default function App() {
   const [splineApp, setSplineApp] = useState<Application>();
   const [loadingActive, setLoadingActive] = useState<boolean>(true);
-  const [terminalActive, setTerminalActive] = useState<boolean>(false);
 
-  function exitTerminal() {
-    setTerminalActive(false);
+  const [actionComponent, setActionComponent] = useState<JSX.Element>()
+  const [actionComponentActive, setActionComponentActive] = useState<boolean>(false);
+
+  function loadActionComponent(component: JSX.Element) {
+    setActionComponent(component)
+    window.setTimeout(() => setActionComponentActive(true), 1700)
+  };
+
+  function unloadActiveComponent() {
+    setActionComponentActive(false)
+  };
+
+  function handleMouseDown(event: SplineEvent) {
+    if (event.target.name === "Laptop") loadActionComponent(<Terminal exit={unloadActiveComponent}/>)
   }
 
   useEffect(() => {
     if (splineApp) setLoadingActive(false);
-
-    // function handleMouseDown(event: SplineEvent) {
-    //   if (event.target.name === "Laptop") {
-    //     window.setTimeout(() => setTerminalActive(true), 1500);
-    //   }
-    // }
-
-    // if (splineApp) {
-    // splineApp.addEventListener("mouseDown", handleMouseDown);
-    // }
   }, [splineApp]);
-
-  const element = document.querySelector("canvas");
-  if (element?.hasAttribute("data-engine") && loadingActive)
-    setLoadingActive(false);
 
   return (
     <>
@@ -41,14 +38,14 @@ export default function App() {
         <Spline
           scene="https://prod.spline.design/NkSduNGlzit-O-p1/scene.splinecode"
           onLoad={setSplineApp}
-          onStart={console.log}
+          onMouseDown={handleMouseDown}
         />
       </Suspense>
 
       <Loading active={loadingActive} />
 
       <Fade
-        in={terminalActive}
+        in={actionComponentActive}
         timeout={500}
         unmountOnExit={true}
         style={{
@@ -64,14 +61,7 @@ export default function App() {
           width="100%"
           height="100%"
         >
-          <TerminalContextProvider>
-            <Terminal
-              style={{
-                cursor: "URL('terminal-cursor.png')",
-              }}
-              exit={exitTerminal}
-            />
-          </TerminalContextProvider>
+          {actionComponent}
         </Box>
       </Fade>
     </>
