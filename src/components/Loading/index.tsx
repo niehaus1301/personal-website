@@ -37,7 +37,7 @@ export default function Loading({ active }: Props) {
     >
       <Stack
         position="fixed"
-        zIndex={1000}
+        zIndex={1}
         top={0}
         left={0}
         width="100%"
