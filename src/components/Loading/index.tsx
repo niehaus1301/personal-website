@@ -5,23 +5,22 @@ import {
   linearProgressClasses,
   styled,
 } from "@mui/material";
-import { Box, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 
 interface Props {
   active: boolean;
 }
 
 export default function Loading({ active }: Props) {
-  const CustomLinearProgress = styled(LinearProgress)(({ theme }) => ({
-    height: 10,
+  const CustomLinearProgress = styled(LinearProgress)(() => ({
+    height: 8,
     borderRadius: 5,
     [`&.${linearProgressClasses.colorPrimary}`]: {
-      backgroundColor:
-        theme.palette.grey[theme.palette.mode === "light" ? 200 : 800],
+      backgroundColor: "primary.light",
     },
     [`& .${linearProgressClasses.bar}`]: {
       borderRadius: 5,
-      backgroundColor: theme.palette.mode === "light" ? "#1a90ff" : "#308fe8",
+      backgroundColor: "#fff",
     },
   }));
 
@@ -43,17 +42,21 @@ export default function Loading({ active }: Props) {
         left={0}
         width="100%"
         height="100%"
-        style={{ backgroundColor: "white" }}
+        sx={{ backgroundColor: "primary.main" }}
         direction="column"
         justifyContent="center"
         alignItems="center"
         spacing={2}
       >
-        <Typography variant="h3" fontWeight="bold">
+        <Typography
+          variant="h4"
+          fontWeight="bold"
+          color="white"
+        >
           Leonard Niehaus
         </Typography>
-        <CustomLinearProgress style={{ width: 400 }} />
-        <Typography variant="subtitle1">Preparing my room...</Typography>
+        <CustomLinearProgress style={{ width: 200, color: "#fff"}} />
+        <Typography variant="subtitle2" color="white" fontStyle="italic">Tidying up my room...</Typography>
       </Stack>
     </Fade>
   );
