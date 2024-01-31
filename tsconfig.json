@@ -18,8 +18,14 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@mui/material": ["./node_modules/@mui/joy"]
+    },
+    "types": ["vite/client", "vite-plugin-svgr/client"]
   },
+
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
