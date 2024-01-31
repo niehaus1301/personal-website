@@ -4,9 +4,8 @@ variables:
   CI: "false"
 
 workflow:
-  only:
-    refs:
-      - main
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'main'
 
 stages:
   - install
