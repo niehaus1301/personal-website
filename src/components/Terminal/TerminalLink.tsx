@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { Typography } from "@mui/material";
+import { Typography } from "@mui/joy";
 
 interface Props extends PropsWithChildren {
   onClick: () => void;
@@ -8,11 +8,12 @@ export default function TerminalLink({ onClick, children }: Props) {
   return (
     <Typography
       onClick={onClick}
-      fontFamily="consolas"
-      variant="h5"
+      level="h3"
       sx={{
         cursor: "pointer",
         backgroundColor: "white",
+        color: "common.black",
+        fontFamily: "monospace",
       }}
     >
       {"["}
