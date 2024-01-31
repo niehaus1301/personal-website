@@ -1,13 +1,17 @@
 // using request because cloudflare protection fires on axios
 import request from "request";
 import fs from "fs";
+import path from "path";
 
 const MY_FLIGHTRADAR_URL =
   "https://my.flightradar24.com/public-scripts/flight-list/Niehaus1301";
 
 const AIRLABS_URL = "https://airlabs.co/api/v9/airports";
 
-const OUTPUT_FILE_PATH = "../src/assets/flights.json";
+const OUTPUT_FILE_PATH = path.join(
+  new URL(import.meta.url).pathname,
+  "../../src/assets/flights.json"
+);
 
 // eslint-disable-next-line no-undef
 const airLabsApiKey = process.argv[2];
