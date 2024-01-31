@@ -1,79 +1,73 @@
-import { Application } from "@splinetool/runtime";
-import { Suspense, lazy, useEffect, useState } from "react";
-import Terminal from "./components/Terminal/Terminal";
-import Fade from "@mui/material/Fade";
-import Box from "@mui/material/Box";
-import Loading from "./components/Loading";
-import { SplineEvent } from "@splinetool/react-spline";
-import Resume from "./components/Resume";
+import { AnimatePresence, motion } from "framer-motion";
+import { PropsWithChildren, Suspense, lazy } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+import Box from "@mui/joy/Box";
+import Loading from "./components/MainLoading/Loading";
 
-const Spline = lazy(() => import("@splinetool/react-spline"));
+const Room = lazy(() => import("@/components/Room/Room"));
+const Terminal = lazy(() => import("@/components/Terminal/Terminal"));
+const Resume = lazy(() => import("@/components/Resume/Resume"));
+const TravelMap = lazy(() => import("@/components/TravelMap/TravelMap"));
+
+function ActionComponentBox({ children }: PropsWithChildren) {
+  return (
+    <Box
+      position="fixed"
+      zIndex={1}
+      top={0}
+      left={0}
+      width="100%"
+      height="100%"
+    >
+      <Suspense fallback={null}>{children}</Suspense>
+    </Box>
+  );
+}
 
 export default function App() {
-  const [splineApp, setSplineApp] = useState<Application>();
-  const [actionComponent, setActionComponent] = useState<JSX.Element>();
-  const [actionComponentActive, setActionComponentActive] =
-    useState<boolean>(false);
-
-  function loadActionComponent(component: JSX.Element) {
-    setActionComponent(component);
-    window.setTimeout(() => setActionComponentActive(true), 1700);
-  }
-
-  function unloadActiveComponent() {
-    setActionComponentActive(false);
-  }
-
-  function handleMouseDown(event: SplineEvent) {
-    if (event.target.name === "Laptop")
-      loadActionComponent(<Terminal exit={unloadActiveComponent} />);
-      if (event.target.name === "Notebook")
-      loadActionComponent(<Resume exit={unloadActiveComponent} />);
-  }
-
-  // Trigger the plane flying every 60 seconds when not in an action component
-  useEffect(() => {
-    if (splineApp) {
-      const loopId = setInterval(() => {
-        if (!actionComponentActive) splineApp.emitEvent("mouseUp", "Plane")
-      }, 1000 * 60);
-
-      return () => clearInterval(loopId);
-    }
-  }, [splineApp, actionComponentActive]);
+  const location = useLocation();
 
   return (
     <>
-      <Suspense fallback={null}>
-        <Spline
-          scene="https://prod.spline.design/NkSduNGlzit-O-p1/scene.splinecode"
-          onLoad={setSplineApp}
-          onMouseDown={handleMouseDown}
-        />
+      <Suspense fallback={<Loading />}>
+        <Room />
       </Suspense>
-
-      <Loading active={!splineApp} />
-
-      <Fade
-        in={actionComponentActive}
-        timeout={500}
-        unmountOnExit={true}
-        style={{
-          height: "100%",
-          width: "100%",
-        }}
-      >
-        <Box
-          position="fixed"
-          zIndex={1}
-          top={0}
-          left={0}
-          width="100%"
-          height="100%"
+      <AnimatePresence>
+        <motion.div
+          key={location.pathname}
+          exit={{ opacity: 0, transition: { duration: 1 } }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { delay: 1.5 } }}
         >
-          {actionComponent}
-        </Box>
-      </Fade>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={null} />
+            <Route
+              path="/travelmap"
+              element={
+                <ActionComponentBox>
+                  <TravelMap />
+                </ActionComponentBox>
+              }
+            />
+            <Route
+              path="/terminal"
+              element={
+                <ActionComponentBox>
+                  <Terminal />
+                </ActionComponentBox>
+              }
+            />
+            <Route
+              path="/resume"
+              element={
+                <ActionComponentBox>
+                  <Resume />
+                </ActionComponentBox>
+              }
+            />
+          </Routes>
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 }
