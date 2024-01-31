@@ -25,3 +25,6 @@ dist-ssr
 
 # Firebase
 .firebase
+
+# Export script
+src/assets/flights.json

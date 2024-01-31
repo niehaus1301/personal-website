@@ -57,7 +57,7 @@ const airportsResult = await fetch(
 const airportsRaw = await airportsResult.json();
 
 const airports = airportsRaw.response.reduce((result, airport) => {
-  result[airport.iata_code] = [airport.lat, airport.lng];
+  result[airport.iata_code] = [airport.lng, airport.lat];
   return result;
 }, {});
 
