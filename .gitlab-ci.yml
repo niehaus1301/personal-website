@@ -1,0 +1,70 @@
+variables:
+  GOOGLE_APPLICATION_CREDENTIALS: ${GCP_SERVICE_ACCOUNT_KEY}
+  AIRLABS_API_KEY: ${AIRLABS_API_KEY}
+  CI: "false"
+
+workflow:
+  only:
+    refs:
+      - main
+
+stages:
+  - install
+  - build
+  - deploy
+  - test
+
+image: node:20
+
+install:
+  stage: install
+  cache:
+    - key: NPM_DOWNLOAD_CACHE
+      paths:
+        - .npm/
+      when: on_success
+      policy: pull-push
+    - key: NODE_MODULES_${CI_PIPELINE_ID}
+      paths:
+        - node_modules/
+      when: on_success
+      policy: push
+  script:
+    - npm install --cache .npm --prefer-offline --legacy-peer-deps
+
+exportMyFlightradar:
+  stage: build
+  needs: ["install"]
+  script:
+    - node ./scripts/exportMyFlightradar.js ${AIRLABS_API_KEY}
+
+build:
+  stage: build
+  needs: ["exportMyFlightradar"]
+  cache:
+    - key: NODE_MODULES_${CI_PIPELINE_ID}
+      paths:
+        - node_modules/
+      when: on_success
+      policy: pull-push
+  artifacts:
+    paths:
+      - dist/
+  script:
+    - npm run build -- --mode=${VITE_MODE}
+    - npm prune --omit=dev --legacy-peer-deps
+
+deploy:
+  stage: deploy
+  image: andreysenov/firebase-tools
+  cache:
+    - key: NODE_MODULES_${CI_PIPELINE_ID}
+      paths:
+        - node_modules/
+      policy: pull
+  needs:
+    - job: build
+      artifacts: true
+  script:
+    - firebase use ${FIREBASE_PROJECT_ALIAS}
+    - firebase deploy --only=hosting
