@@ -31,15 +31,8 @@ install:
   script:
     - npm install --cache .npm --prefer-offline --legacy-peer-deps
 
-exportMyFlightradar:
-  stage: build
-  needs: ["install"]
-  script:
-    - node ./scripts/exportMyFlightradar.js ${AIRLABS_API_KEY}
-
 build:
   stage: build
-  needs: ["exportMyFlightradar"]
   cache:
     - key: NODE_MODULES_${CI_PIPELINE_ID}
       paths:
@@ -50,6 +43,7 @@ build:
     paths:
       - dist/
   script:
+    - node ./scripts/exportMyFlightradar.js ${AIRLABS_API_KEY}
     - npm run build -- --mode=${VITE_MODE}
     - npm prune --omit=dev --legacy-peer-deps
 
