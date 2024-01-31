@@ -1,15 +1,18 @@
 import { ReactTerminal, TerminalContextProvider } from "react-terminal";
 import commands from "./commands";
 import calculateAge from "./utils";
-import { Stack, Typography } from "@mui/material";
+import { Stack } from "@mui/material";
 import TerminalLink from "./TerminalLink";
+import { useNavigate } from "react-router-dom";
 
-interface Props {
-  exit: () => void;
-}
-
-export default function Terminal({ exit }: Props) {
+export default function Terminal() {
   const yearsOld = calculateAge(new Date("2001-07-13"));
+
+  const navigate = useNavigate();
+
+  function exit() {
+    navigate(-1);
+  }
 
   return (
     <TerminalContextProvider>
@@ -48,11 +51,17 @@ export default function Terminal({ exit }: Props) {
           padding={1}
           width="100%"
         >
-         <TerminalLink onClick={exit}>Exit</TerminalLink>
-         <TerminalLink onClick={() => window.open(
-          "https://docs.google.com/document/d/1PrNXuOxpr_sHql20tGmEgSevfjy5RzVB3ACiyHLZOnQ/view",
-          "_blank"
-        )}>Open as Doc^</TerminalLink>
+          <TerminalLink onClick={exit}>Exit</TerminalLink>
+          <TerminalLink
+            onClick={() =>
+              window.open(
+                "https://docs.google.com/document/d/1PrNXuOxpr_sHql20tGmEgSevfjy5RzVB3ACiyHLZOnQ/view",
+                "_blank"
+              )
+            }
+          >
+            Open as Doc^
+          </TerminalLink>
         </Stack>
       </Stack>
     </TerminalContextProvider>
