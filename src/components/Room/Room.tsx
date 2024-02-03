@@ -12,20 +12,26 @@ const Spline = lazy(() => import("@splinetool/react-spline"));
 
 export default function Room() {
   const [splineApp, setSplineApp] = useState<Application>();
+  const [musicPlaying, setMusicPlaying] = useState(false);
+  const [musicAudio] = useState(new Audio("music.mp3"));
 
   const { systemMode } = useColorScheme();
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  function handleMouseDown(event: SplineEvent) {
+  const handleMouseDown = (event: SplineEvent) => {
     if (event.target.name === "Laptop") navigate("terminal");
     if (event.target.name === "Notebook") navigate("resume");
     if (event.target.name === "TravelMap") navigate("travelmap");
-  }
+    if (event.target.name === "Radio") setMusicPlaying((prev) => !prev);
+  };
 
   const theme = useTheme();
   const tabIsVisible = useTabVisibility();
+
+  musicAudio.loop = true;
+  musicAudio.muted = !tabIsVisible;
 
   // Trigger the plane flying every 60 seconds when not in an action component
   useEffect(() => {
@@ -39,10 +45,24 @@ export default function Room() {
     }
   }, [splineApp, location.pathname, tabIsVisible]);
 
+  // play or pause music based on state
+  useEffect(() => {
+    splineApp?.setVariable("musicPlaying", musicPlaying);
+    musicPlaying ? musicAudio.play() : musicAudio.pause();
+  }, [splineApp, musicPlaying, musicAudio]);
+
   // Set background color based on theme
   useEffect(() => {
     if (splineApp) splineApp.setBackgroundColor("transparent");
   }, [splineApp, systemMode]);
+
+  // Reset music on unmount
+  useEffect(() => {
+    () => {
+      musicAudio.pause();
+      musicAudio.currentTime = 0;
+    };
+  }, [musicAudio]);
 
   return (
     <>
@@ -58,7 +78,13 @@ export default function Room() {
           onMouseDown={handleMouseDown}
         />
       </motion.div>
-      {splineApp && <NavMenu splineApp={splineApp} />}
+      {splineApp && (
+        <NavMenu
+          splineApp={splineApp}
+          musicPlaying={musicPlaying}
+          setMusicPlaying={setMusicPlaying}
+        />
+      )}
       <AnimatePresence>
         {!splineApp && (
           <motion.div

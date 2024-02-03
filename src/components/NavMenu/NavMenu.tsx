@@ -28,9 +28,15 @@ const MenuItemDead = styled(MenuItem)`
 
 interface Props {
   splineApp: Application;
+  musicPlaying: boolean;
+  setMusicPlaying: (playing: boolean) => void;
 }
 
-export default function NavMenu({ splineApp }: Props) {
+export default function NavMenu({
+  splineApp,
+  musicPlaying,
+  setMusicPlaying,
+}: Props) {
   const [open, setOpen] = useState<boolean>(window.innerWidth > 900);
 
   const { pathname } = useLocation();
@@ -85,7 +91,10 @@ export default function NavMenu({ splineApp }: Props) {
         <ListDivider />
         <MenuItemDead>
           Play Music:
-          <MusicControl splineApp={splineApp} />
+          <MusicControl
+            musicPlaying={musicPlaying}
+            setMusicPlaying={setMusicPlaying}
+          />
         </MenuItemDead>
         <MenuItemDead>
           Color Theme:
