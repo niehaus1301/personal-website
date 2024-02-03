@@ -1,6 +1,4 @@
 import IconButton from "@mui/joy/IconButton";
-import { type Application } from "@splinetool/runtime";
-import { useEffect, useState } from "react";
 import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import StopRoundedIcon from "@mui/icons-material/StopRounded";
 
