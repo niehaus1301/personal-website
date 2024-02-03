@@ -4,14 +4,14 @@ import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
 import DarkModeRoundedIcon from "@mui/icons-material/DarkModeRounded";
 
 export default function ThemeSwitch() {
-  const { mode, setMode } = useColorScheme();
+  const { mode, systemMode, setMode } = useColorScheme();
 
-  const isDark = mode === "dark";
+  const isDark = (mode === "system" ? systemMode : mode) === "dark";
 
   return (
     <Switch
       size="lg"
-      color={isDark ? "primary" : "warning"}
+      color={isDark ? "success" : "warning"}
       startDecorator={
         <LightModeRoundedIcon
           fontSize="large"
@@ -21,7 +21,7 @@ export default function ThemeSwitch() {
       endDecorator={
         <DarkModeRoundedIcon
           fontSize="large"
-          sx={{ color: isDark ? "primary.600" : "text.tertiary" }}
+          sx={{ color: isDark ? "success.600" : "text.tertiary" }}
         />
       }
       checked={isDark}

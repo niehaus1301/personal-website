@@ -15,9 +15,9 @@ export default function Loading({ caption }: Props) {
       height="100%"
       width="100%"
       spacing={1}
-      sx={{ backgroundColor: "primary.softBg" }}
+      sx={{ backgroundColor: "success.softBg" }}
     >
-      <CircularProgress />
+      <CircularProgress color="success" />
       <Typography level="h3">{caption}</Typography>
     </Stack>
   );

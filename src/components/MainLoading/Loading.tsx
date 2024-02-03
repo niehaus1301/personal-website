@@ -20,6 +20,7 @@ export default function Loading() {
         Leonard Niehaus
       </Typography>
       <LinearProgress
+        color="success"
         variant="soft"
         size="lg"
         sx={{ width: 200, maxHeight: 8 }}
