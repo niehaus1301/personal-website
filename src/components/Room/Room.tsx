@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useColorScheme, useTheme } from "@mui/joy/styles";
 import { AnimatePresence, motion } from "framer-motion";
 import NavMenu from "../NavMenu/NavMenu";
+import useTabVisibility from "@/hooks/useTabVisibility";
 
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
@@ -23,22 +24,20 @@ export default function Room() {
     if (event.target.name === "TravelMap") navigate("travelmap");
   }
 
-  function emitSplineMouseDownEvent(nameOrUid: string) {
-    splineApp?.emitEvent("mouseDown", nameOrUid);
-  }
-
   const theme = useTheme();
+  const tabIsVisible = useTabVisibility();
 
   // Trigger the plane flying every 60 seconds when not in an action component
   useEffect(() => {
     if (splineApp) {
       const loopId = setInterval(() => {
-        if (location.pathname === "/") splineApp.emitEvent("mouseUp", "Plane");
+        if (location.pathname === "/" && tabIsVisible)
+          splineApp.emitEvent("mouseUp", "Plane");
       }, 1000 * 60);
 
       return () => clearInterval(loopId);
     }
-  }, [splineApp, location.pathname]);
+  }, [splineApp, location.pathname, tabIsVisible]);
 
   // Set background color based on theme
   useEffect(() => {
@@ -50,7 +49,7 @@ export default function Room() {
       <motion.div
         style={{ width: "100%", height: "100%" }}
         animate={{
-          backgroundColor: theme.palette.primary.softHoverBg.slice(-8, -1),
+          backgroundColor: theme.palette.success.softHoverBg.slice(-8, -1),
         }}
       >
         <Spline
@@ -59,9 +58,7 @@ export default function Room() {
           onMouseDown={handleMouseDown}
         />
       </motion.div>
-      {splineApp && (
-        <NavMenu emitSplineMouseDownEvent={emitSplineMouseDownEvent} />
-      )}
+      {splineApp && <NavMenu splineApp={splineApp} />}
       <AnimatePresence>
         {!splineApp && (
           <motion.div

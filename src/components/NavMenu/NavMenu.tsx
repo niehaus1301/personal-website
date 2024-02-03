@@ -14,6 +14,8 @@ import { styled } from "@mui/joy";
 import AppsRoundedIcon from "@mui/icons-material/AppsRounded";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { type Application } from "@splinetool/runtime";
+import MusicControl from "./MusicControl";
 
 const MenuItemDead = styled(MenuItem)`
   &:hover,
@@ -25,13 +27,17 @@ const MenuItemDead = styled(MenuItem)`
 `;
 
 interface Props {
-  emitSplineMouseDownEvent: (nameOrUid: string) => void;
+  splineApp: Application;
 }
 
-export default function NavMenu({ emitSplineMouseDownEvent }: Props) {
+export default function NavMenu({ splineApp }: Props) {
   const [open, setOpen] = useState<boolean>(window.innerWidth > 900);
 
   const { pathname } = useLocation();
+
+  function emitSplineMouseDownEvent(nameOrUid: string) {
+    splineApp.emitEvent("mouseDown", nameOrUid);
+  }
 
   return (
     <Dropdown open={open && pathname === "/"}>
@@ -77,6 +83,10 @@ export default function NavMenu({ emitSplineMouseDownEvent }: Props) {
           Send me an E-Mail
         </MenuItem>
         <ListDivider />
+        <MenuItemDead>
+          Play Music:
+          <MusicControl splineApp={splineApp} />
+        </MenuItemDead>
         <MenuItemDead>
           Color Theme:
           <ThemeSwitch />
