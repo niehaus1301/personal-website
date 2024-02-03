@@ -13,7 +13,7 @@ function ActionComponentBox({ children }: PropsWithChildren) {
   return (
     <Box
       position="fixed"
-      zIndex={1}
+      zIndex={999}
       top={0}
       left={0}
       width="100%"

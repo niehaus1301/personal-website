@@ -3,8 +3,9 @@ import { type SplineEvent } from "@splinetool/react-spline";
 import { lazy, useEffect, useState } from "react";
 import Loading from "@/components/MainLoading/Loading";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useColorScheme } from "@mui/joy";
+import { useColorScheme, useTheme } from "@mui/joy/styles";
 import { AnimatePresence, motion } from "framer-motion";
+import NavMenu from "../NavMenu/NavMenu";
 
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
@@ -22,6 +23,12 @@ export default function Room() {
     if (event.target.name === "TravelMap") navigate("travelmap");
   }
 
+  function emitSplineMouseDownEvent(nameOrUid: string) {
+    splineApp?.emitEvent("mouseDown", nameOrUid);
+  }
+
+  const theme = useTheme();
+
   // Trigger the plane flying every 60 seconds when not in an action component
   useEffect(() => {
     if (splineApp) {
@@ -35,25 +42,32 @@ export default function Room() {
 
   // Set background color based on theme
   useEffect(() => {
-    if (splineApp) {
-      const color = systemMode === "dark" ? "black" : "blue";
-      splineApp.setBackgroundColor(color);
-    }
+    if (splineApp) splineApp.setBackgroundColor("transparent");
   }, [splineApp, systemMode]);
 
   return (
     <>
-      <Spline
-        scene={import.meta.env.VITE_SPLINE_URL}
-        onLoad={setSplineApp}
-        onMouseDown={handleMouseDown}
-      />
+      <motion.div
+        style={{ width: "100%", height: "100%" }}
+        animate={{
+          backgroundColor: theme.palette.primary.softHoverBg.slice(-8, -1),
+        }}
+      >
+        <Spline
+          scene={import.meta.env.VITE_SPLINE_URL}
+          onLoad={setSplineApp}
+          onMouseDown={handleMouseDown}
+        />
+      </motion.div>
+      {splineApp && (
+        <NavMenu emitSplineMouseDownEvent={emitSplineMouseDownEvent} />
+      )}
       <AnimatePresence>
         {!splineApp && (
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
+            transition={{ duration: 1 }}
           >
             <Loading />
           </motion.div>

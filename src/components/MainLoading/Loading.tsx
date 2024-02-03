@@ -5,7 +5,7 @@ export default function Loading() {
   return (
     <Stack
       position="fixed"
-      zIndex={1}
+      zIndex={999}
       top={0}
       left={0}
       width="100%"
