@@ -3,9 +3,9 @@ import { type SplineEvent } from "@splinetool/react-spline";
 import { lazy, useEffect, useState } from "react";
 import Loading from "@/components/MainLoading/Loading";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useColorScheme, useTheme } from "@mui/joy/styles";
+import { useTheme } from "@mui/joy/styles";
 import { AnimatePresence, motion } from "framer-motion";
-import NavMenu from "../NavMenu/NavMenu";
+import MainMenu from "../MainMenu/MainMenu";
 import useTabVisibility from "@/hooks/useTabVisibility";
 
 const Spline = lazy(() => import("@splinetool/react-spline"));
@@ -14,17 +14,20 @@ export default function Room() {
   const [splineApp, setSplineApp] = useState<Application>();
   const [musicPlaying, setMusicPlaying] = useState(false);
   const [musicAudio] = useState(new Audio("music.mp3"));
-
-  const { systemMode } = useColorScheme();
+  const [lightOn, setLightOn] = useState(true);
+  const [menuPage, setMenuPage] = useState<"main" | "controls" | null>(null);
 
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Handle major mouse down events of spline
   const handleMouseDown = (event: SplineEvent) => {
     if (event.target.name === "Laptop") navigate("terminal");
     if (event.target.name === "Notebook") navigate("resume");
     if (event.target.name === "TravelMap") navigate("travelmap");
     if (event.target.name === "Radio") setMusicPlaying((prev) => !prev);
+    if (event.target.name === "Switch") setLightOn((prev) => !prev);
+    if (event.target.name === "Roomba") setMenuPage("controls");
   };
 
   const theme = useTheme();
@@ -51,11 +54,6 @@ export default function Room() {
     musicPlaying ? musicAudio.play() : musicAudio.pause();
   }, [splineApp, musicPlaying, musicAudio]);
 
-  // Set background color based on theme
-  useEffect(() => {
-    if (splineApp) splineApp.setBackgroundColor("transparent");
-  }, [splineApp, systemMode]);
-
   // Reset music on unmount
   useEffect(() => {
     () => {
@@ -70,6 +68,7 @@ export default function Room() {
         style={{ width: "100%", height: "100%" }}
         animate={{
           backgroundColor: theme.palette.success.softHoverBg.slice(-8, -1),
+          filter: `brightness(${lightOn ? 1 : 0.25})`,
         }}
       >
         <Spline
@@ -79,10 +78,12 @@ export default function Room() {
         />
       </motion.div>
       {splineApp && (
-        <NavMenu
+        <MainMenu
           splineApp={splineApp}
           musicPlaying={musicPlaying}
           setMusicPlaying={setMusicPlaying}
+          page={menuPage}
+          setPage={setMenuPage}
         />
       )}
       <AnimatePresence>
