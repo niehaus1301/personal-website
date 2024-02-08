@@ -92,3 +92,9 @@ Start the dev server
 ```bash
 npm run dev
 ```
+
+## Acknowledgements & Inspirations
+
+ - [Designin a Mini Room in 3D with Spline](https://www.youtube.com/watch?v=XHvCk7Z2x1A)
+ - [Jesse's Ramen](https://jesse-zhou.com/)
+ -
