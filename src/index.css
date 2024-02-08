@@ -27,3 +27,13 @@ iframe {
 #terminalEditor::-webkit-scrollbar {
   display: none;
 }
+
+/* Colors for joystick */
+.back {
+  background: var(--joy-palette-background-level2) !important;
+}
+
+.front {
+  background: var(--joy-palette-neutral-softColor) !important;
+  opacity: 0.4;
+}
