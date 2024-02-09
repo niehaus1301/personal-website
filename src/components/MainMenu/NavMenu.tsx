@@ -11,6 +11,7 @@ import Menu from "@mui/joy/Menu";
 import { styled } from "@mui/joy";
 import MusicControl from "./MusicControl";
 import OpenWithRoundedIcon from "@mui/icons-material/OpenWithRounded";
+import CodeRoundedIcon from "@mui/icons-material/CodeRounded";
 import { Application } from "@splinetool/runtime";
 
 const MenuItemDead = styled(MenuItem)`
@@ -68,6 +69,16 @@ export default function NavMenu({
           <EmailRoundedIcon />
         </ListItemDecorator>
         Send me an E-Mail
+      </MenuItem>
+      <MenuItem
+        onClick={() =>
+          window.open(import.meta.env.VITE_SOURCE_CODE_URL, "_blank")
+        }
+      >
+        <ListItemDecorator>
+          <CodeRoundedIcon />
+        </ListItemDecorator>
+        View source code & docs
       </MenuItem>
       <ListDivider />
       <MenuItem onClick={() => emitSplineMouseDownEvent("Roomba")}>
