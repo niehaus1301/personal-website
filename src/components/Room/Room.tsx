@@ -1,6 +1,6 @@
 import { type Application } from "@splinetool/runtime";
 import { type SplineEvent } from "@splinetool/react-spline";
-import { lazy, useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import MainLoading from "@/components/MainLoading/MainLoading";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/joy/styles";
@@ -76,11 +76,15 @@ export default function Room() {
         }}
       >
         {dataUrl && (
-          <Spline
-            scene={dataUrl}
-            onLoad={setSplineApp}
-            onMouseDown={handleMouseDown}
-          />
+          <Suspense
+            fallback={<MainLoading progress={80} caption={"Finalizing..."} />}
+          >
+            <Spline
+              scene={dataUrl}
+              onLoad={setSplineApp}
+              onMouseDown={handleMouseDown}
+            />
+          </Suspense>
         )}
       </motion.div>
       {splineApp && (
