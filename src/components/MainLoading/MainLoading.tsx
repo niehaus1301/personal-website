@@ -1,7 +1,12 @@
 import { LinearProgress, Typography } from "@mui/joy";
 import { Stack } from "@mui/material";
 
-export default function Loading() {
+interface Props {
+  progress: number;
+  caption: string;
+}
+
+export default function MainLoading({ progress, caption }: Props) {
   return (
     <Stack
       position="fixed"
@@ -22,11 +27,13 @@ export default function Loading() {
       <LinearProgress
         color="success"
         variant="soft"
+        determinate={true}
+        value={progress}
         size="lg"
         sx={{ width: 200, maxHeight: 8 }}
       />
       <Typography level="body-md" fontStyle="italic">
-        Tidying up my room...
+        {caption}
       </Typography>
     </Stack>
   );

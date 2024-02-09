@@ -1,12 +1,13 @@
 import { type Application } from "@splinetool/runtime";
 import { type SplineEvent } from "@splinetool/react-spline";
 import { lazy, useEffect, useState } from "react";
-import Loading from "@/components/MainLoading/Loading";
+import MainLoading from "@/components/MainLoading/MainLoading";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/joy/styles";
 import { AnimatePresence, motion } from "framer-motion";
 import MainMenu from "../MainMenu/MainMenu";
 import useTabVisibility from "@/hooks/useTabVisibility";
+import useLoadSplinecode from "@/hooks/useFetchSplinecode";
 
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
@@ -19,6 +20,7 @@ export default function Room() {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const { dataUrl, progress } = useLoadSplinecode();
 
   // Handle major mouse down events of spline
   const handleMouseDown = (event: SplineEvent) => {
@@ -62,6 +64,8 @@ export default function Room() {
     };
   }, [musicAudio]);
 
+  console.log(progress);
+
   return (
     <>
       <motion.div
@@ -71,11 +75,13 @@ export default function Room() {
           filter: `brightness(${lightOn ? 1 : 0.25})`,
         }}
       >
-        <Spline
-          scene={import.meta.env.VITE_SPLINE_URL}
-          onLoad={setSplineApp}
-          onMouseDown={handleMouseDown}
-        />
+        {dataUrl && (
+          <Spline
+            scene={dataUrl}
+            onLoad={setSplineApp}
+            onMouseDown={handleMouseDown}
+          />
+        )}
       </motion.div>
       {splineApp && (
         <MainMenu
@@ -93,7 +99,12 @@ export default function Room() {
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
           >
-            <Loading />
+            <MainLoading
+              progress={20 + progress * 0.65}
+              caption={
+                progress === 100 ? "Rendering room..." : "Downloading Room..."
+              }
+            />
           </motion.div>
         )}
       </AnimatePresence>

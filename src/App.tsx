@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { PropsWithChildren, Suspense, lazy } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Box from "@mui/joy/Box";
-import Loading from "./components/MainLoading/Loading";
+import MainLoading from "./components/MainLoading/MainLoading";
 
 const Room = lazy(() => import("@/components/Room/Room"));
 const Terminal = lazy(() => import("@/components/Terminal/Terminal"));
@@ -29,7 +29,9 @@ export default function App() {
 
   return (
     <>
-      <Suspense fallback={<Loading />}>
+      <Suspense
+        fallback={<MainLoading progress={10} caption="Getting ready..." />}
+      >
         <Room />
       </Suspense>
       <AnimatePresence>
