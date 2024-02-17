@@ -5,7 +5,19 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svgr(), react(), tsconfigPaths()],
+  optimizeDeps: {
+    include: ["@emotion/react", "@emotion/styled", "@mui/material/Tooltip"],
+  },
+  plugins: [
+    svgr(),
+    react({
+      jsxImportSource: "@emotion/react",
+      babel: {
+        plugins: ["@emotion/babel-plugin"],
+      },
+    }),
+    tsconfigPaths(),
+  ],
   resolve: {
     alias: {
       "@mui/material": "@mui/joy",
