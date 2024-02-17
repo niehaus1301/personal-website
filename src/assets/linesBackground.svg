@@ -1,0 +1,40 @@
+<svg width="92" height="23" viewBox="0 0 92 23" xmlns="http://www.w3.org/2000/svg">
+    <!-- Line One -->
+    <rect x="0" y="0" width="20" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+    <rect x="21" y="0" width="9" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+    <rect x="31" y="0" width="26" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+
+    <!-- Line Two -->
+    <rect x="0" y="3" width="32" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+    <rect x="33" y="3" width="20" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+
+    <!-- Line Three -->
+    <rect x="0" y="6" width="10" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+    <rect x="11" y="6" width="45" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+
+    <!-- Line Four -->
+    <rect x="0" y="9" width="45" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+    <rect x="46" y="9" width="20" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+
+    <!-- Line Five -->
+    <rect x="0" y="12" width="4" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+    <rect x="5" y="12" width="23" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+    <rect x="29" y="12" width="25" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+    <rect x="55" y="12" width="15" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+
+    <!-- Line Six -->
+    <rect x="0" y="15" width="20" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+    <rect x="21" y="15" width="31" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+    <rect x="53" y="15" width="26" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+
+    <!-- Line Seven -->
+    <rect x="0" y="18" width="30" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+    <rect x="31" y="18" width="34" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+    <rect x="66" y="18" width="18" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+
+    <!-- Line Eight -->
+    <rect x="0" y="21" width="10" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+    <rect x="11" y="21" width="34" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+    <rect x="46" y="21" width="5" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+    <rect x="52" y="21" width="40" height="2" rx="1" ry="1" fill="darkgrey" opacity="0.125" />
+</svg>
