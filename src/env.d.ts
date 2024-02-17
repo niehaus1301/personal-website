@@ -7,6 +7,11 @@ interface ImportMetaEnv {
   readonly VITE_MAPBOX_STYLE_URL: string;
   readonly VITE_MY_EMAIL: string;
   readonly VITE_SOURCE_CODE_URL: string;
+  readonly VITE_ROUTE_LANDING: string;
+  readonly VITE_ROUTE_ROOM: string;
+  readonly VITE_ROUTE_MAP: string;
+  readonly VITE_ROUTE_TERMINAL: string;
+  readonly VITE_ROUTE_RESUME: string;
 }
 
 interface ImportMeta {

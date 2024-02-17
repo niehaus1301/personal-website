@@ -1,17 +1,27 @@
 import { type Application } from "@splinetool/runtime";
 import { type SplineEvent } from "@splinetool/react-spline";
-import { Suspense, lazy, useEffect, useState } from "react";
-import MainLoading from "@/components/MainLoading/MainLoading";
+import { lazy, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/joy/styles";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import MainMenu from "../MainMenu/MainMenu";
 import useTabVisibility from "@/hooks/useTabVisibility";
-import useLoadSplinecode from "@/hooks/useFetchSplinecode";
 
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
-export default function Room() {
+const {
+  VITE_ROUTE_ROOM,
+  VITE_ROUTE_MAP,
+  VITE_ROUTE_TERMINAL,
+  VITE_ROUTE_RESUME,
+} = import.meta.env;
+
+interface Props {
+  dataUrl: string | null;
+  setRoomReady: (v: boolean) => void;
+}
+
+export default function Room({ dataUrl, setRoomReady }: Props) {
   const [splineApp, setSplineApp] = useState<Application>();
   const [musicPlaying, setMusicPlaying] = useState(false);
   const [musicAudio] = useState(new Audio("music.mp3"));
@@ -20,13 +30,12 @@ export default function Room() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const { dataUrl, progress } = useLoadSplinecode();
 
   // Handle major mouse down events of spline
   const handleMouseDown = (event: SplineEvent) => {
-    if (event.target.name === "Laptop") navigate("terminal");
-    if (event.target.name === "Notebook") navigate("resume");
-    if (event.target.name === "TravelMap") navigate("travelmap");
+    if (event.target.name === "Laptop") navigate(VITE_ROUTE_TERMINAL);
+    if (event.target.name === "TravelMap") navigate(VITE_ROUTE_MAP);
+    if (event.target.name === "Notebook") navigate(VITE_ROUTE_RESUME);
     if (event.target.name === "Radio") setMusicPlaying((prev) => !prev);
     if (event.target.name === "Switch") setLightOn((prev) => !prev);
     if (event.target.name === "Roomba") setMenuPage("controls");
@@ -42,7 +51,7 @@ export default function Room() {
   useEffect(() => {
     if (splineApp) {
       const loopId = setInterval(() => {
-        if (location.pathname === "/" && tabIsVisible)
+        if (location.pathname === VITE_ROUTE_ROOM && tabIsVisible)
           splineApp.emitEvent("mouseUp", "Plane");
       }, 1000 * 60);
 
@@ -64,7 +73,9 @@ export default function Room() {
     };
   }, [musicAudio]);
 
-  console.log(progress);
+  useEffect(() => {
+    if (splineApp) setRoomReady(true);
+  }, [splineApp, setRoomReady]);
 
   return (
     <>
@@ -76,15 +87,11 @@ export default function Room() {
         }}
       >
         {dataUrl && (
-          <Suspense
-            fallback={<MainLoading progress={80} caption={"Finalizing..."} />}
-          >
-            <Spline
-              scene={dataUrl}
-              onLoad={setSplineApp}
-              onMouseDown={handleMouseDown}
-            />
-          </Suspense>
+          <Spline
+            scene={dataUrl}
+            onLoad={setSplineApp}
+            onMouseDown={handleMouseDown}
+          />
         )}
       </motion.div>
       {splineApp && (
@@ -96,22 +103,6 @@ export default function Room() {
           setPage={setMenuPage}
         />
       )}
-      <AnimatePresence>
-        {!splineApp && (
-          <motion.div
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <MainLoading
-              progress={20 + progress * 0.65}
-              caption={
-                progress === 100 ? "Rendering room..." : "Downloading Room..."
-              }
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 }
