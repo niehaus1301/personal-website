@@ -54,7 +54,7 @@ export default function TravelMap() {
           width: "auto",
           zIndex: 1,
         }}
-        onClick={() => navigate("/")}
+        onClick={() => navigate(-1)}
       />
       {!mapLoaded && <Loading caption="Loading Map..." />}
       <div style={{ width: "100%", height: "100%" }} ref={mapContainer} />
