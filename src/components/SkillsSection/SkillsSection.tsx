@@ -1,4 +1,4 @@
-import { Box, Card, Divider, Grid, Stack, Typography } from "@mui/joy";
+import { Card, Divider, Grid, Stack, Typography } from "@mui/joy";
 
 import {
   AWSSkill,

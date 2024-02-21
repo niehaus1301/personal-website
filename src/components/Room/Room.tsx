@@ -5,11 +5,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/joy/styles";
 import { motion } from "framer-motion";
 import MainMenu from "../MainMenu/MainMenu";
+import MeetingRoomRoundedIcon from "@mui/icons-material/MeetingRoomRounded";
 import useTabVisibility from "@/hooks/useTabVisibility";
+import { Button } from "@mui/joy";
 
 const Spline = lazy(() => import("@splinetool/react-spline"));
 
 const {
+  VITE_ROUTE_LANDING,
   VITE_ROUTE_ROOM,
   VITE_ROUTE_MAP,
   VITE_ROUTE_TERMINAL,
@@ -29,7 +32,7 @@ export default function Room({ dataUrl, setRoomReady }: Props) {
   const [menuPage, setMenuPage] = useState<"main" | "controls" | null>(null);
 
   const navigate = useNavigate();
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   // Handle major mouse down events of spline
   const handleMouseDown = (event: SplineEvent) => {
@@ -51,13 +54,13 @@ export default function Room({ dataUrl, setRoomReady }: Props) {
   useEffect(() => {
     if (splineApp) {
       const loopId = setInterval(() => {
-        if (location.pathname === VITE_ROUTE_ROOM && tabIsVisible)
+        if (pathname === VITE_ROUTE_ROOM && tabIsVisible)
           splineApp.emitEvent("mouseUp", "Plane");
       }, 1000 * 60);
 
       return () => clearInterval(loopId);
     }
-  }, [splineApp, location.pathname, tabIsVisible]);
+  }, [splineApp, pathname, tabIsVisible]);
 
   // play or pause music based on state
   useEffect(() => {
@@ -94,14 +97,26 @@ export default function Room({ dataUrl, setRoomReady }: Props) {
           />
         )}
       </motion.div>
-      {splineApp && (
-        <MainMenu
-          splineApp={splineApp}
-          musicPlaying={musicPlaying}
-          setMusicPlaying={setMusicPlaying}
-          page={menuPage}
-          setPage={setMenuPage}
-        />
+      {splineApp && pathname === VITE_ROUTE_ROOM && (
+        <>
+          <MainMenu
+            splineApp={splineApp}
+            musicPlaying={musicPlaying}
+            setMusicPlaying={setMusicPlaying}
+            page={menuPage}
+            setPage={setMenuPage}
+          />
+          <Button
+            variant="soft"
+            color="neutral"
+            size="lg"
+            startDecorator={<MeetingRoomRoundedIcon />}
+            sx={{ position: "absolute", bottom: 26, left: 26, zIndex: 1 }}
+            onClick={() => navigate(VITE_ROUTE_LANDING)}
+          >
+            Exit
+          </Button>
+        </>
       )}
     </>
   );

@@ -1,7 +1,6 @@
 import AspectRatio from "@mui/joy/AspectRatio";
 import Card from "@mui/joy/Card";
 import Typography from "@mui/joy/Typography";
-import InvoeqScreenshotPng from "@/assets/invoeq-screenshot.png";
 import CardContent from "@mui/joy/CardContent";
 import Button from "@mui/joy/Button";
 import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
