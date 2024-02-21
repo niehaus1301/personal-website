@@ -5,16 +5,29 @@ import {
   MongoDBSkill,
   ReactSkill,
   TypescriptSkill,
-} from "../Portfolio/Skill";
+} from "../Skill/Skill";
 import LinesBackgroundSvg from "@/assets/linesBackground.svg?react";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import IntroSection from "../IntroSection/IntroSection";
+import ProjectsSection from "../ProjectsSection/ProjectsSection";
+import SkillsSection from "../SkillsSection/SkillsSection";
+import ExperienceSection from "../ExperienceSection/ExperienceSection";
 
-export default function LandingPage() {
+interface Props {
+  roomReady: boolean;
+  roomEnabled: boolean;
+  setRoomEnabled: (v: boolean) => void;
+}
+
+export default function LandingPage({
+  roomReady,
+  roomEnabled,
+  setRoomEnabled,
+}: Props) {
   return (
-    <Box width="100%" display="flex" justifyContent="center">
-      <Box width="100%" maxWidth={1200} marginX="6%" marginTop={4}>
+    <Box width="100%" display="flex" justifyContent="center" overflow="hidden">
+      <Box width="92%" maxWidth={1200} marginX="6%" marginTop={10}>
         <Grid container spacing={4}>
           <Grid xs={12} md={7} position="relative">
             <LinesBackgroundSvg
@@ -61,9 +74,42 @@ export default function LandingPage() {
             </Stack>
           </Grid>
           <Grid xs={12} md={5} justifyContent="right">
-            <RoomPreview />
+            <RoomPreview
+              roomReady={roomReady}
+              roomEnabled={roomEnabled}
+              setRoomEnabled={setRoomEnabled}
+            />
+          </Grid>
+          <Grid xs={12} position="relative">
+            <Box margin={10} />
+            <LinesBackgroundSvg
+              style={{
+                position: "absolute",
+                transform: "rotate(20deg) scaleX(-1)",
+                width: 800,
+                right: -300,
+                height: "auto",
+              }}
+            />
+            <ProjectsSection />
+          </Grid>
+          <Grid xs={12} position="relative">
+            <LinesBackgroundSvg
+              style={{
+                marginTop: 50,
+                position: "absolute",
+                transform: "rotate(10deg) scaleY(-1)",
+                width: 800,
+                left: -300,
+                height: "auto",
+              }}
+            />
+            <SkillsSection />
           </Grid>
         </Grid>
+        <Box margin={10} />
+        <ExperienceSection />
+        <Box margin={40} />
       </Box>
     </Box>
   );
