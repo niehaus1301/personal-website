@@ -53,7 +53,7 @@ export default function RoombaControls({ exit }: Props) {
   };
 
   return (
-    <Menu placement="top-start" sx={{ width: 200, height: 250, zIndex: 99 }}>
+    <Menu placement="top-start" sx={{ width: 200, height: 250, zIndex: 1 }}>
       <MenuItem onClick={exit}>
         <ListItemDecorator>
           <ArrowBackRoundedIcon />

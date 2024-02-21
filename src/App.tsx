@@ -3,8 +3,8 @@ import { Box } from "@mui/joy";
 import { PropsWithChildren, lazy, useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import useFetchSplinecode from "./hooks/useFetchSplinecode";
+import LandingPage from "@/components/LandingPage/LandingPage";
 
-const LandingPage = lazy(() => import("@/components/LandingPage/LandingPage"));
 const Resume = lazy(() => import("@/components/Resume/Resume"));
 const Room = lazy(() => import("@/components/Room/Room"));
 const Terminal = lazy(() => import("@/components/Terminal/Terminal"));
@@ -21,8 +21,8 @@ const {
 function ActionComponentBox({ children }: PropsWithChildren) {
   return (
     <Box
-      position="fixed"
-      zIndex={99999}
+      position="absolute"
+      zIndex={10}
       top={0}
       left={0}
       width="100%"
@@ -38,24 +38,32 @@ export default function App() {
   const [roomReady, setRoomReady] = useState(false);
   const [roomEnabled, setRoomEnabled] = useState(false);
 
-  const location = useLocation();
   const { dataUrl } = useFetchSplinecode();
+  const location = useLocation();
+
+  const { pathname } = location;
 
   useEffect(() => {
-    if (location.pathname === VITE_ROUTE_ROOM) setRoomEnabled(true);
-  }, [location.pathname]);
+    if (pathname === VITE_ROUTE_ROOM) setRoomEnabled(true);
+  }, [pathname]);
 
   return (
     <>
       {roomEnabled && <Room dataUrl={dataUrl} setRoomReady={setRoomReady} />}
       <AnimatePresence initial={false}>
         <motion.div
-          key={location.pathname}
+          key={pathname}
           exit={{ opacity: 0, transition: { duration: 1 } }}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { delay: 1.5 } }}
+          animate={{
+            opacity: 1,
+            transition: {
+              // 1.5 seconds due to camera trasition. No delay when navigating to Laning Page, as no camera transition
+              delay: pathname === VITE_ROUTE_LANDING ? 0 : 1.5,
+            },
+          }}
         >
-          <Routes location={location} key={location.pathname}>
+          <Routes location={location} key={pathname}>
             <Route path={VITE_ROUTE_ROOM} element={null} />
             <Route
               path={VITE_ROUTE_LANDING}

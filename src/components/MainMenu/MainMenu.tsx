@@ -24,7 +24,7 @@ export default function MainMenu({
 }: Props) {
   const { pathname } = useLocation();
 
-  const open = Boolean(page) && pathname === "/";
+  const open = Boolean(page) && pathname === import.meta.env.VITE_ROUTE_ROOM;
   const isSmallScreen = window.innerWidth <= 900;
 
   // By default we show the menu on larger screens
@@ -50,7 +50,7 @@ export default function MainMenu({
         color="neutral"
         size="lg"
         startDecorator={<AppsRoundedIcon />}
-        sx={{ position: "absolute", bottom: 26, right: 26, zIndex: 99 }}
+        sx={{ position: "absolute", bottom: 26, right: 26, zIndex: 1 }}
         onClick={() => setPage(open ? null : "main")}
       >
         Menu
