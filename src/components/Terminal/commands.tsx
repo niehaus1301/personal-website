@@ -1,4 +1,4 @@
-import resume from "./resume.json";
+import resume from "@/resume.json";
 
 const { basics, funfacts, languages } = resume;
 const { name, email, phone, url, summary } = basics;

@@ -24,7 +24,8 @@
       "highlights": [
         "Built a Next.js 13 app to automatically generate DSM matrices based on tools used in the flight physics department to showcase their dependencies, with features including a drag-and-drop JSON schema editor and OpenAPI export.",
         "Developing a modern Web API for a PostgreSQL database storing raw flight test time-series data in Python and Flask, as part of a large SAFe project with joint teams across Hamburg, Toulouse, UK and India. The API supports CRUD operations and endpoints for specific use cases."
-      ]
+      ],
+      "companyLogoUrl": "airbusLogo.jpeg"
     },
     {
       "name": "CGI",
@@ -43,7 +44,8 @@
         "Pitched Door James in multiple c-level calls, and worked extensively with the CIO office to have Door James become CGIs global asset booking solution (now rolled out in 100+ offices with 35k users).",
         "Actively contributed to backend code (Node.js, TypeScript, Mongoose, Express), infrastructure on GCP (App Engine, Cloud Functions, Compute Engine, Load Balancer, Cloud Storage), architecture and concepts for Door James.",
         "Developed a retail customer journey for CGIs booth at Euroshop 2020. Connected dynamic e-ink price tags to programmatically adjust prices based on customers' food preference. Implemented a stock picking demo-case with Firebase Firestore and Hosting."
-      ]
+      ],
+      "companyLogoUrl": "cgiLogo.jpeg"
     },
     {
       "name": "Ampool",
@@ -54,7 +56,8 @@
       "highlights": [
         "Ensured compatibility of Ampool’s data analytics software with GCP.",
         "Demonstrated functionality by creating multiple environments that involve large datasets on BigQuery and Microsoft SQL Server to be analyzed."
-      ]
+      ],
+      "companyLogoUrl": "ampoolLogo.jpeg"
     },
     {
       "name": "Cititec Systems",
@@ -65,7 +68,8 @@
       "highlights": [
         "Planned, designed and launched a new company website on WordPress.",
         "Worked on a ticket system based on PHP & MySQL."
-      ]
+      ],
+      "companyLogoUrl": "cititecLogo.jpeg"
     }
   ],
   "education": [
@@ -112,6 +116,44 @@
     {
       "language": "English",
       "fluency": "Fluent"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Resume Website",
+      "startDate": "2019-01-01",
+      "endDate": "2021-01-01",
+      "description": "Description...",
+      "highlights": ["Won award at AIHacks 2016"],
+      "url": "https://invoeq.com",
+      "thumbnailUrl": "invoeq-screenshot.png"
+    },
+    {
+      "name": "InvoEQ",
+      "startDate": "2019-01-01",
+      "endDate": "2021-01-01",
+      "description": "Description...",
+      "highlights": ["Won award at AIHacks 2016"],
+      "url": "https://invoeq.com",
+      "thumbnailUrl": "invoeq-screenshot.png"
+    },
+    {
+      "name": "FLUSI",
+      "startDate": "2019-01-01",
+      "endDate": "2021-01-01",
+      "description": "Description...",
+      "highlights": ["Won award at AIHacks 2016"],
+      "url": "https://www.youtube.com/@flusi8105",
+      "thumbnailUrl": "invoeq-screenshot.png"
+    },
+    {
+      "name": "FLUSI",
+      "startDate": "2019-01-01",
+      "endDate": "2021-01-01",
+      "description": "Description...",
+      "highlights": ["Won award at AIHacks 2016"],
+      "url": "https://www.youtube.com/@flusi8105",
+      "thumbnailUrl": "invoeq-screenshot.png"
     }
   ],
   "funfacts": [
