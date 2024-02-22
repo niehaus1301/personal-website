@@ -20,7 +20,8 @@
       "position": "Full-Stack developer for Flight Physics",
       "url": "https://airbus.com",
       "startDate": "2023-06-01",
-      "endDate": "Present",
+      "endDate": null,
+      "location": "Hamburg, Germany",
       "highlights": [
         "Built a Next.js 13 app to automatically generate DSM matrices based on tools used in the flight physics department to showcase their dependencies, with features including a drag-and-drop JSON schema editor and OpenAPI export.",
         "Developing a modern Web API for a PostgreSQL database storing raw flight test time-series data in Python and Flask, as part of a large SAFe project with joint teams across Hamburg, Toulouse, UK and India. The API supports CRUD operations and endpoints for specific use cases."
@@ -33,6 +34,7 @@
       "url": "https://cgi.com",
       "startDate": "2019-11-01",
       "endDate": "2023-05-31",
+      "location": "Dusseldorf, Germany",
       "highlights": [
         "Founded, developed and launched CGI’s internal startup Door James, a visitor registration SaaS solution to replace paper lists at reception (later transitioned to asset booking and office management solution due to COVID demands).",
         "Developed and deployed a multi-cloud architecture for Door James (GCP & IONOS) to attract clients needing sovereign cloud options. Dockerized application to allow easier deployment to cloud providers. Moved from Google Cloud Build to GitLab CI/CD.",
@@ -53,6 +55,7 @@
       "url": "https://ampool.com",
       "startDate": "2019-08-01",
       "endDate": "2019-10-31",
+      "location": "Mountain View, California",
       "highlights": [
         "Ensured compatibility of Ampool’s data analytics software with GCP.",
         "Demonstrated functionality by creating multiple environments that involve large datasets on BigQuery and Microsoft SQL Server to be analyzed."
@@ -65,6 +68,7 @@
       "url": "https://cititec.com.au",
       "startDate": "2018-06-01",
       "endDate": "2018-07-31",
+      "location": "Melbourne, Australia",
       "highlights": [
         "Planned, designed and launched a new company website on WordPress.",
         "Worked on a ticket system based on PHP & MySQL."
