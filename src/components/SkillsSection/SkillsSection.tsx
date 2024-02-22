@@ -3,7 +3,7 @@ import { Card, Divider, Grid, Stack, Typography } from "@mui/joy";
 import {
   AWSSkill,
   BashSkill,
-  DialogflowSkill,
+  DialogflowCXSkill,
   DockerSkill,
   FigmaSkill,
   FirebaseSkill,
@@ -59,7 +59,7 @@ export default function SkillsSection() {
             <Typography level="h4">I've played around with</Typography>
             <Divider sx={{ marginY: 2 }} />
             <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-              <DialogflowSkill />
+              <DialogflowCXSkill />
               <SplineSkill />
               <GAppsScriptSkill />
             </Stack>

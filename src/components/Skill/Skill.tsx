@@ -2,7 +2,7 @@ import Chip from "@mui/joy/Chip";
 import ReactSvg from "@/assets/react.svg?react";
 import PythonSvg from "@/assets/python.svg?react";
 import TypescriptSvg from "@/assets/typescript.svg?react";
-import DialogflowSvg from "@/assets/dialogflow.svg?react"; // Assuming you have the SVGs
+import DialogflowCXSvg from "@/assets/dialogflowcx.svg?react"; // Assuming you have the SVGs
 import FirebaseSvg from "@/assets/firebase.svg?react";
 import PostgreSQLSvg from "@/assets/postgresql.svg?react";
 import DockerSvg from "@/assets/docker.svg?react";
@@ -50,8 +50,8 @@ export const PythonSkill = () => (
 export const TypescriptSkill = () => (
   <Skill svgIcon={TypescriptSvg} title="TypeScript" color="primary" />
 );
-export const DialogflowSkill = () => (
-  <Skill svgIcon={DialogflowSvg} title="Dialogflow" color="warning" />
+export const DialogflowCXSkill = () => (
+  <Skill svgIcon={DialogflowCXSvg} title="Dialogflow CX" color="primary" />
 );
 export const FirebaseSkill = () => (
   <Skill svgIcon={FirebaseSvg} title="Firebase" color="warning" />
@@ -87,7 +87,7 @@ export const GitSkill = () => (
   <Skill svgIcon={GitSvg} title="Git" color="danger" />
 );
 export const GitLabSkill = () => (
-  <Skill svgIcon={GitLabSvg} title="GitLab" color="danger" />
+  <Skill svgIcon={GitLabSvg} title="GitLab CI/CD" color="danger" />
 );
 export const JiraSkill = () => (
   <Skill svgIcon={JiraSvg} title="Jira" color="primary" />
