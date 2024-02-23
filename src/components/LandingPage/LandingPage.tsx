@@ -27,7 +27,7 @@ export default function LandingPage({
 }: Props) {
   return (
     <Box width="100%" display="flex" justifyContent="center" overflow="hidden">
-      <Box width="92%" maxWidth={1200} marginX="6%" marginTop={10}>
+      <Box width="92%" maxWidth={1200} marginTop={{ xs: 4, md: "6vw" }}>
         <Grid container spacing={4}>
           <Grid xs={12} md={7} position="relative">
             <LinesBackgroundSvg
