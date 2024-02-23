@@ -1,10 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Box } from "@mui/joy";
-import { PropsWithChildren, lazy, useEffect, useState } from "react";
+import { PropsWithChildren, Suspense, lazy, useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import useFetchSplinecode from "./hooks/useFetchSplinecode";
-import LandingPage from "@/components/LandingPage/LandingPage";
 
+const LandingPage = lazy(() => import("@/components/LandingPage/LandingPage"));
 const Resume = lazy(() => import("@/components/Resume/Resume"));
 const Room = lazy(() => import("@/components/Room/Room"));
 const Terminal = lazy(() => import("@/components/Terminal/Terminal"));
@@ -29,7 +29,7 @@ function ActionComponentBox({ children }: PropsWithChildren) {
       height="100%"
       sx={{ backgroundColor: "background.body" }}
     >
-      {children}
+      <Suspense fallback={null}>{children}</Suspense>
     </Box>
   );
 }
