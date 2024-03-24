@@ -58,6 +58,9 @@ export default function LandingPage({
             </Typography>
             <Stack direction="row" spacing={2} marginTop={2}>
               <Button
+                component="a"
+                href={import.meta.env.VITE_CONTACT_LINKEDIN_URL}
+                target="_blank"
                 startDecorator={<LinkedInIcon />}
                 variant="soft"
                 sx={{ maxWidth: "50%" }}
@@ -65,6 +68,9 @@ export default function LandingPage({
                 {"in/leonard-niehaus"}
               </Button>
               <Button
+                component="a"
+                href={import.meta.env.VITE_CONTACT_EMAIL}
+                target="_blank"
                 startDecorator={<EmailRoundedIcon />}
                 variant="soft"
                 sx={{ maxWidth: "50%", overflowWrap: "anywhere" }}

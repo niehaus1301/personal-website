@@ -12,6 +12,8 @@ interface ImportMetaEnv {
   readonly VITE_ROUTE_MAP: string;
   readonly VITE_ROUTE_TERMINAL: string;
   readonly VITE_ROUTE_RESUME: string;
+  readonly VITE_CONTACT_EMAIL: string;
+  readonly VITE_CONTACT_LINKEDIN_URL: string;
 }
 
 interface ImportMeta {
