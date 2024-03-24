@@ -6,7 +6,14 @@ import tsconfigPaths from "vite-tsconfig-paths";
 // https://vitejs.dev/config/
 export default defineConfig({
   optimizeDeps: {
-    include: ["@emotion/react", "@emotion/styled", "@mui/material/Tooltip"],
+    include: [
+      "@emotion/react",
+      "@emotion/styled",
+      "@mui/joy/Tooltip",
+      "@mui/joy/ListSubheader",
+      "@mui/material",
+      "@mui/joy",
+    ],
   },
   plugins: [
     svgr(),
