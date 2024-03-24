@@ -4,11 +4,16 @@ import Typography from "@mui/joy/Typography";
 import CardContent from "@mui/joy/CardContent";
 import Button from "@mui/joy/Button";
 import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
-import CodeRoundedIcon from "@mui/icons-material/CodeRounded";
-import { Stack } from "@mui/joy";
+import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
+import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded";
+import { Tooltip, Chip, Stack } from "@mui/joy";
+import { useState } from "react";
+import ProjectModal from "./ProjectModal";
+import timeAgo from "@/utils/timeAgo";
 
-interface Project {
+export interface Project {
   name: string;
+  summary: string;
   startDate: string;
   endDate: string;
   description: string;
@@ -22,31 +27,67 @@ interface Props {
 }
 
 export function ProjectCard({ project }: Props) {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
-    <Card orientation="vertical" size="sm" variant="soft" sx={{ width: 350 }}>
-      <Typography level="title-lg">{project.name}</Typography>
-      <Typography>A simple image to table parser</Typography>
-      <AspectRatio minHeight="120px" maxHeight="200px">
-        <img src={project.thumbnailUrl} alt="Screenshot of Invoeq solution" />
-      </AspectRatio>
-      <CardContent>
-        <Typography level="body-sm">Oct 2023 to Jan 2024</Typography>
-
+    <>
+      <Card orientation="vertical" size="sm" variant="soft" sx={{ width: 350 }}>
         <Stack direction="row" justifyContent="space-between">
-          <Button variant="plain" startDecorator={<CodeRoundedIcon />}>
-            View Source
-          </Button>
-          <Button
-            component="a"
-            href={project.url}
-            target="_blank"
-            startDecorator={<OpenInNewRoundedIcon />}
-            sx={{ ml: "auto", alignSelf: "center", fontWeight: 600 }}
-          >
-            Open Project
-          </Button>
+          <Typography level="title-lg">{project.name}</Typography>
+          <Chip variant="soft" color="warning">
+            Personal Project
+          </Chip>
         </Stack>
-      </CardContent>
-    </Card>
+        <Typography
+          level="body-md"
+          sx={{
+            height: "3em",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          }}
+        >
+          {project.summary}
+        </Typography>
+        <AspectRatio ratio={8 / 5}>
+          <img src={project.thumbnailUrl} alt="Screenshot of " />
+        </AspectRatio>
+        <CardContent>
+          <Typography level="body-sm" my={1}>
+            <AccessTimeOutlinedIcon sx={{ fontSize: "inherit" }} />
+            {" about " + timeAgo(project.startDate)}
+          </Typography>
+
+          <Stack direction="row" justifyContent="space-between">
+            <Tooltip
+              arrow={true}
+              title={project.url ? "" : "The project is not available anymore"}
+            >
+              <span>
+                <Button
+                  disabled={!project.url}
+                  variant="plain"
+                  startDecorator={<OpenInNewRoundedIcon />}
+                  component="a"
+                  href={project.url}
+                  target="_blank"
+                >
+                  Open Project
+                </Button>
+              </span>
+            </Tooltip>
+
+            <Button
+              startDecorator={<VisibilityRoundedIcon />}
+              onClick={() => setModalOpen(true)}
+            >
+              View Details
+            </Button>
+          </Stack>
+        </CardContent>
+      </Card>
+
+      {modalOpen && (
+        <ProjectModal project={project} setModalOpen={setModalOpen} />
+      )}
+    </>
   );
 }
