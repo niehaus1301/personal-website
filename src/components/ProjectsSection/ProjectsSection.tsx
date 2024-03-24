@@ -18,7 +18,7 @@ export default function ProjectsSection() {
         width="120%"
         sx={{
           scrollSnapType: { xs: "x mandatory", sm: "none" },
-          transform: "translateX(-8%)",
+          transform: "translateX(-8.5%)",
           maskImage:
             "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
         }}
