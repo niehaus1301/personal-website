@@ -50,7 +50,7 @@ export default function MainMenu({
         color="neutral"
         size="lg"
         startDecorator={<AppsRoundedIcon />}
-        sx={{ position: "absolute", bottom: 26, right: 26, zIndex: 1 }}
+        sx={{ position: "fixed", bottom: 26, right: 26, zIndex: 1 }}
         onClick={() => setPage(open ? null : "main")}
       >
         Menu

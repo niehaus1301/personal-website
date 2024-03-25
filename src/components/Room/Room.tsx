@@ -83,7 +83,18 @@ export default function Room({ dataUrl, setRoomReady }: Props) {
   return (
     <>
       <motion.div
-        style={{ width: "100%", height: "100%" }}
+        className="spline-div"
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          WebkitTouchCallout: "none",
+          WebkitUserSelect: "none",
+          MozUserSelect: "none",
+          userSelect: "none",
+        }}
         animate={{
           backgroundColor: theme.palette.success.softHoverBg.slice(-8, -1),
           filter: `brightness(${lightOn ? 1 : 0.25})`,
@@ -111,7 +122,7 @@ export default function Room({ dataUrl, setRoomReady }: Props) {
             color="neutral"
             size="lg"
             startDecorator={<MeetingRoomRoundedIcon />}
-            sx={{ position: "absolute", bottom: 26, left: 26, zIndex: 1 }}
+            sx={{ position: "fixed", bottom: 26, left: 26, zIndex: 1 }}
             onClick={() => navigate(VITE_ROUTE_LANDING)}
           >
             Exit

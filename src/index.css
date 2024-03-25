@@ -1,31 +1,3 @@
-/* * {
-  box-sizing: border-box;
-} */
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: auto;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
-
-#root {
-  width: 100%;
-  height: 100%;
-}
-
-iframe {
-  display: block;
-  border: none;
-  height: 100vh;
-  width: 100vw;
-}
-
 #terminalEditor::-webkit-scrollbar {
   display: none;
 }
@@ -36,11 +8,11 @@ iframe {
   z-index: 2 !important;
 }
 
-.back {
+.nipple.back {
   background: var(--joy-palette-background-level2) !important;
 }
 
-.front {
+.nipple.front {
   background: var(--joy-palette-neutral-softColor) !important;
   opacity: 0.4;
 }
