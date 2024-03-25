@@ -12,6 +12,7 @@ export default function ProjectsSection() {
         Projects 🏗️
       </Typography>
       <Stack
+        className="projects-gallery"
         direction="row"
         ref={scrollRef}
         overflow="scroll"
@@ -23,16 +24,17 @@ export default function ProjectsSection() {
           maskImage:
             "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
         }}
-        spacing={{ xs: 2, sm: 5 }}
+        spacing={{ xs: 1.5, sm: 3, lg: 5 }}
         paddingX="10%"
       >
         {projects.map((project, i) => (
           <Box
+            key={i}
             sx={{
               scrollSnapAlign: snapPointIndexes.has(i) ? "center" : "",
             }}
           >
-            <ProjectCard key={i} project={project} />
+            <ProjectCard project={project} />
           </Box>
         ))}
       </Stack>

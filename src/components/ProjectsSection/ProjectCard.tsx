@@ -28,9 +28,15 @@ interface Props {
 
 export function ProjectCard({ project }: Props) {
   const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <>
-      <Card orientation="vertical" size="sm" variant="soft" sx={{ width: 350 }}>
+      <Card
+        orientation="vertical"
+        size="sm"
+        variant="soft"
+        sx={{ width: "85vw", maxWidth: 400 }}
+      >
         <Stack direction="row" justifyContent="space-between">
           <Typography level="title-lg">{project.name}</Typography>
           <Chip variant="soft" color="warning">
