@@ -26,7 +26,14 @@ export default function LandingPage({
   setRoomEnabled,
 }: Props) {
   return (
-    <Box width="100%" display="flex" justifyContent="center" overflow="hidden">
+    <Box
+      width="100%"
+      height="max-content"
+      display="flex"
+      justifyContent="center"
+      overflow="hidden"
+      sx={{ backgroundColor: "background.body" }}
+    >
       <Box width="92%" maxWidth={1200} marginTop={{ xs: 4, md: "6vw" }}>
         <Grid container spacing={4}>
           <Grid xs={12} md={7} position="relative">
