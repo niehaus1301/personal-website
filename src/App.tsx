@@ -26,7 +26,8 @@ function ActionComponentBox({ children }: PropsWithChildren) {
       top={0}
       left={0}
       width="100%"
-      height="max-content"
+      height="100%"
+      minHeight="max-content"
       sx={{ backgroundColor: "background.body" }}
     >
       <Suspense fallback={null}>{children}</Suspense>
