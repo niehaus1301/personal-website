@@ -10,16 +10,19 @@ import { Tooltip, Chip, Stack } from "@mui/joy";
 import { useState } from "react";
 import ProjectModal from "./ProjectModal";
 import timeAgo from "@/utils/timeAgo";
+import ProjectChip from "./ProjectChip";
 
 export interface Project {
   name: string;
+  type: "personal" | "professional";
   summary: string;
   startDate: string;
   endDate: string;
   description: string;
   highlights: string[];
   url?: string;
-  thumbnailUrl?: string;
+  images: string[];
+  work?: string;
 }
 
 interface Props {
@@ -38,10 +41,8 @@ export function ProjectCard({ project }: Props) {
         sx={{ width: "85vw", maxWidth: 400 }}
       >
         <Stack direction="row" justifyContent="space-between">
-          <Typography level="title-lg">{project.name}</Typography>
-          <Chip variant="soft" color="warning">
-            Personal Project
-          </Chip>
+          <Typography level="h4">{project.name}</Typography>
+          <ProjectChip project={project} />
         </Stack>
         <Typography
           level="body-md"
@@ -54,7 +55,7 @@ export function ProjectCard({ project }: Props) {
           {project.summary}
         </Typography>
         <AspectRatio ratio={8 / 5}>
-          <img src={project.thumbnailUrl} alt="Screenshot of " />
+          <img src={project.images?.[0]} alt="Screenshot of " />
         </AspectRatio>
         <CardContent>
           <Typography level="body-sm" my={1}>

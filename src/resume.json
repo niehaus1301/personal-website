@@ -125,42 +125,62 @@
   "projects": [
     {
       "name": "3D Room",
+      "type": "personal",
       "summary": "An interactive 3D model of a room representing my personality",
       "startDate": "2023-11-01",
       "endDate": "2021-01-01",
       "description": "Description...",
       "highlights": ["Won award at AIHacks 2016"],
       "url": "/room",
-      "thumbnailUrl": "room-screenshot.png"
+      "images": ["room-screenshot.png"]
     },
     {
       "name": "InvoEQ",
+      "type": "personal",
       "summary": "A simple image to table parser based on optical character recognition",
       "startDate": "2023-09-01",
       "endDate": "2021-01-01",
       "description": "Description...",
       "highlights": ["Won award at AIHacks 2016"],
       "url": "https://invoeq.com",
-      "thumbnailUrl": "invoeq-screenshot.png"
+      "images": ["invoeq-screenshot.png"]
     },
     {
       "name": "Blocky.Host",
+      "type": "personal",
       "summary": "Free gameservers on Google Cloud Compute Engine Spot machines",
       "startDate": "2019-01-01",
       "endDate": "2021-01-01",
       "description": "Description...",
       "highlights": ["Won award at AIHacks 2016"],
-      "thumbnailUrl": "blockyhost-screenshot.png"
+      "images": ["blockyhost-screenshot.png"]
+    },
+    {
+      "name": "Door James",
+      "type": "professional",
+      "summary": "Free gameservers on Google Cloud Compute Engine Spot machines",
+      "startDate": "2020-01-01",
+      "endDate": "2023-04-01",
+      "description": "The world of work is changing dramatically, with flexible work arrangements and remote work now commonplace. Effectively managing office workspaces has become a greater priority and challenge for organizations across industries in today’s hybrid work environments. Door James enables the smart management of your workspaces, providing you with a complete view of workspace occupancy and facilitating fast and secure bookings.",
+      "highlights": ["Won award at AIHacks 2016"],
+      "images": [
+        "doorjames-screenshot.png",
+        "doorjames-screenshot1.png",
+        "doorjames-screenshot2.png",
+        "doorjames-screenshot3.png"
+      ],
+      "work": "CGI"
     },
     {
       "name": "FLUSI",
+      "type": "personal",
       "summary": "Home-built flight simulator with a YouTube channel for progress updates",
       "startDate": "2019-01-01",
       "endDate": "2021-01-01",
       "description": "Description...",
       "highlights": ["Won award at AIHacks 2016"],
       "url": "https://www.youtube.com/@flusi8105",
-      "thumbnailUrl": "flusi-screenshot.jpg"
+      "images": ["flusi-screenshot.jpg"]
     }
   ],
   "funfacts": [
