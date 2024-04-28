@@ -6,7 +6,7 @@ import Button from "@mui/joy/Button";
 import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded";
-import { Tooltip, Chip, Stack } from "@mui/joy";
+import { Tooltip, Stack } from "@mui/joy";
 import { useState } from "react";
 import ProjectModal from "./ProjectModal";
 import timeAgo from "@/utils/timeAgo";
@@ -14,7 +14,7 @@ import ProjectChip from "./ProjectChip";
 
 export interface Project {
   name: string;
-  type: "personal" | "professional";
+  type: string;
   summary: string;
   startDate: string;
   endDate: string;
