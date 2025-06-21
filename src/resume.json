@@ -124,6 +124,17 @@
   ],
   "projects": [
     {
+      "name": "Autaxo",
+      "type": "startup",
+      "summary": "Supercharged car dealership management with tax optimizations",
+      "startDate": "2023-11-01",
+      "endDate": "2021-01-01",
+      "description": "Description...",
+      "highlights": ["Won award at AIHacks 2016"],
+      "url": "https://www.autaxo.de/",
+      "images": ["autaxo-screenshot.png"]
+    },
+    {
       "name": "3D Room",
       "type": "personal",
       "summary": "An interactive 3D model of a room representing my personality",
@@ -153,16 +164,18 @@
       "endDate": "2021-01-01",
       "description": "Description...",
       "highlights": ["Won award at AIHacks 2016"],
+      "url": "https://github.com/niehaus1301?tab=repositories&q=blockyhost",
       "images": ["blockyhost-screenshot.png"]
     },
     {
       "name": "Door James",
-      "type": "professional",
+      "type": "work",
       "summary": "Free gameservers on Google Cloud Compute Engine Spot machines",
       "startDate": "2020-01-01",
       "endDate": "2023-04-01",
       "description": "The world of work is changing dramatically, with flexible work arrangements and remote work now commonplace. Effectively managing office workspaces has become a greater priority and challenge for organizations across industries in today’s hybrid work environments. Door James enables the smart management of your workspaces, providing you with a complete view of workspace occupancy and facilitating fast and secure bookings.",
       "highlights": ["Won award at AIHacks 2016"],
+      "url": "https://www.cgi.com/en/solutions/intelligence-automation/door-james",
       "images": [
         "doorjames-screenshot.png",
         "doorjames-screenshot1.png",
