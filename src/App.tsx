@@ -44,6 +44,7 @@ export default function App() {
 
   useEffect(() => {
     if (pathname === VITE_ROUTE_ROOM) setRoomEnabled(true);
+    if (pathname === VITE_ROUTE_LANDING) setRoomEnabled(false);
   }, [pathname]);
 
   return (
