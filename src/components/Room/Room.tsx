@@ -104,7 +104,7 @@ export default function Room({ dataUrl, setRoomReady }: Props) {
           <Spline
             scene={dataUrl}
             onLoad={setSplineApp}
-            onMouseDown={handleMouseDown}
+            onSplineMouseDown={handleMouseDown}
           />
         )}
       </motion.div>
