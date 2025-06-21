@@ -1,0 +1,40 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install --cache .npm --prefer-offline --legacy-peer-deps
+        env:
+          CI: "false"
+
+      - name: Build
+        run: |
+          node ./scripts/exportMyFlightradar.js ${{ secrets.AIRLABS_API_KEY }}
+          npm run build
+          npm prune --omit=dev --legacy-peer-deps
+        env:
+          AIRLABS_API_KEY: ${{ secrets.AIRLABS_API_KEY }}
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          channelId: live
+          projectId: leonard-niehaus
