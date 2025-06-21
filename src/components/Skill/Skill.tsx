@@ -10,7 +10,7 @@ import TerraformSvg from "@/assets/terraform.svg?react";
 import BashSvg from "@/assets/bash.svg?react";
 import MongoDBSvg from "@/assets/mongodb.svg?react";
 import GcpSvg from "@/assets/gcp.svg?react";
-import NextjsSvg from "@/assets/nextjs.svg?react";
+import NestJsSvg from "@/assets/nestjs.svg?react";
 import SplineSvg from "@/assets/spline.svg?react";
 import GAppsScriptSvg from "@/assets/gappsscript.svg?react";
 import GitSvg from "@/assets/git.svg?react";
@@ -19,6 +19,7 @@ import JiraSvg from "@/assets/jira.svg?react";
 import AWSSvg from "@/assets/aws.svg?react";
 import KubernetesSvg from "@/assets/kubernetes.svg?react";
 import FigmaSvg from "@/assets/figma.svg?react";
+import PrismaSvg from "@/assets/prisma.svg?react";
 
 import { ColorPaletteProp } from "@mui/joy";
 
@@ -74,9 +75,6 @@ export const MongoDBSkill = () => (
 export const GcpSkill = () => (
   <Skill svgIcon={GcpSvg} title="GCP" color="danger" />
 );
-export const NextjsSkill = () => (
-  <Skill svgIcon={NextjsSvg} title="Next.js" color="neutral" />
-);
 export const SplineSkill = () => (
   <Skill svgIcon={SplineSvg} title="Spline" color="danger" />
 );
@@ -100,4 +98,10 @@ export const KubernetesSkill = () => (
 );
 export const FigmaSkill = () => (
   <Skill svgIcon={FigmaSvg} title="Figma" color="success" />
+);
+export const PrismaSkill = () => (
+  <Skill svgIcon={PrismaSvg} title="Prisma" color="neutral" />
+);
+export const NestJsSkill = () => (
+  <Skill svgIcon={NestJsSvg} title="NestJs" color="danger" />
 );

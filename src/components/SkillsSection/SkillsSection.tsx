@@ -14,6 +14,9 @@ import {
   JiraSkill,
   KubernetesSkill,
   MongoDBSkill,
+  NestJsSkill,
+  PostgreSQLSkill,
+  PrismaSkill,
   ReactSkill,
   SplineSkill,
   TerraformSkill,
@@ -38,6 +41,7 @@ export default function SkillsSection() {
               <FirebaseSkill />
               <GcpSkill />
               <ReactSkill />
+              <NestJsSkill />
             </Stack>
           </Grid>
           <Grid xs={12} md={4} sx={{ maxWidth: { md: 350 } }}>
@@ -53,6 +57,8 @@ export default function SkillsSection() {
               <AWSSkill />
               <KubernetesSkill />
               <FigmaSkill />
+              <PrismaSkill />
+              <PostgreSQLSkill />
             </Stack>
           </Grid>
           <Grid xs={12} md={4} sx={{ maxWidth: { md: 350 } }}>
@@ -62,6 +68,7 @@ export default function SkillsSection() {
               <DialogflowCXSkill />
               <SplineSkill />
               <GAppsScriptSkill />
+              <AWSSkill />
             </Stack>
           </Grid>
         </Grid>
