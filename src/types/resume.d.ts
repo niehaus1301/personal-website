@@ -62,13 +62,14 @@ export interface Project {
   url?: string;
   images: string[];
   work?: string;
-  colleagues?: string[];
+  colleagues?: Colleague[];
 }
 
 export interface Colleague {
   name: string;
   picture: string;
   url: string;
+  urlLabel: string;
 }
 
 export type Funfact = string;

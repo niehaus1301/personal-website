@@ -7,10 +7,10 @@ import {
   Stack,
   Typography,
 } from "@mui/joy";
-import { type Project } from "./ProjectCard";
 import paulImg from "@/assets/paul.jpeg";
 import ProjectModalCarousel from "./ProjectModalCarousel";
 import ProjectChip from "./ProjectChip";
+import { Project } from "@/types/resume";
 
 interface Props {
   setModalOpen: (v: boolean) => void;
@@ -59,20 +59,19 @@ export default function ProjectModal({ setModalOpen, project }: Props) {
           <Typography level="title-sm" my={2}>
             Project Partners:
           </Typography>
-          <Stack direction="row" spacing={2} alignItems="center">
-            <Avatar src={paulImg} size="md" />
-            <div>
-              <Typography level="title-md">Paul-Bogdan Patras</Typography>
-              <Typography level="body-xs">
-                <Link
-                  href="https://linkedin.com/in/paul-bogdan-patras"
-                  target="_blank"
-                >
-                  linkedin.com/in/paul-bogdan-patras
-                </Link>
-              </Typography>
-            </div>
-          </Stack>
+          {project.colleagues?.map(({ name, url, urlLabel, picture }) => (
+            <Stack direction="row" spacing={2} alignItems="center">
+              <Avatar src={picture} size="md" />
+              <div>
+                <Typography level="title-md">{name}</Typography>
+                <Typography level="body-xs">
+                  <Link href={url} target="_blank">
+                    {urlLabel}
+                  </Link>
+                </Typography>
+              </div>
+            </Stack>
+          ))}
         </Stack>
       </Sheet>
     </Modal>
