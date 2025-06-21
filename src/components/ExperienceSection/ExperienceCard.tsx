@@ -14,17 +14,7 @@ import ArrowDownwardRoundedIcon from "@mui/icons-material/ArrowDownwardRounded";
 import ArrowUpwardRoundedIcon from "@mui/icons-material/ArrowUpwardRounded";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
-
-export interface Work {
-  name: string;
-  position: string;
-  url: string;
-  startDate: string;
-  endDate: string | null;
-  location: string;
-  highlights: string[];
-  companyLogoUrl?: string;
-}
+import { Work } from "@/types/resume";
 
 interface Props {
   work: Work;
