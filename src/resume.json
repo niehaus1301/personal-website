@@ -128,18 +128,16 @@
       "type": "startup",
       "summary": "Supercharged car dealership management with tax optimizations",
       "startDate": "2023-11-01",
-      "endDate": "2021-01-01",
       "description": "Description...",
-      "highlights": ["Won award at AIHacks 2016"],
       "url": "https://www.autaxo.de/",
-      "images": ["autaxo-screenshot.png"]
+      "images": ["autaxo-screenshot.png"],
+      "colleagues": ["ahmedbenjabra", "paulbogdanpatras"]
     },
     {
       "name": "3D Room",
       "type": "personal",
       "summary": "An interactive 3D model of a room representing my personality",
       "startDate": "2023-11-01",
-      "endDate": "2021-01-01",
       "description": "Description...",
       "highlights": ["Won award at AIHacks 2016"],
       "url": "/room",
@@ -154,7 +152,8 @@
       "description": "Description...",
       "highlights": ["Won award at AIHacks 2016"],
       "url": "https://invoeq.com",
-      "images": ["invoeq-screenshot.png"]
+      "images": ["invoeq-screenshot.png"],
+      "colleagues": ["paulbogdanpatras"]
     },
     {
       "name": "Blocky.Host",
@@ -196,6 +195,18 @@
       "images": ["flusi-screenshot.jpg"]
     }
   ],
+  "colleagues": {
+    "paulbogdanpatras": {
+      "name": "Paul Bogdan Patras",
+      "picture": "paul.jpeg",
+      "url": "https://www.linkedin.com/in/paul-bogdan-patras-85521317b/"
+    },
+    "ahmedbenjabra ": {
+      "name": "Ahmed Ben Jabra",
+      "picture": "ahmed.jpeg",
+      "url": "https://www.linkedin.com/in/ahmedbenjabra/"
+    }
+  },
   "funfacts": [
     "I wear multiple NFC-microchip implants in my hands, including a credit card",
     "I've traveled to 70 countries. Mostly by staying up to date with flight plans of budget airlines, and then combining low-cost routes on seperate tickets to reach many destinations for a fraction of the cost of a regular ticket.",

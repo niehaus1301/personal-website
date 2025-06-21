@@ -17,7 +17,7 @@ export interface Project {
   type: string;
   summary: string;
   startDate: string;
-  endDate: string;
+  endDate?: string;
   description: string;
   highlights: string[];
   url?: string;
