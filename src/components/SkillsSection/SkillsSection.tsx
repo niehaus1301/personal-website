@@ -68,7 +68,6 @@ export default function SkillsSection() {
               <DialogflowCXSkill />
               <SplineSkill />
               <GAppsScriptSkill />
-              <AWSSkill />
             </Stack>
           </Grid>
         </Grid>
