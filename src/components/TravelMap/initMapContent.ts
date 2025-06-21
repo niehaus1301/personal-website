@@ -1,5 +1,4 @@
 import flightData from "@/assets/flights.json";
-import type mapboxgl from "mapbox-gl";
 import { type MultiLineString, type FeatureCollection } from "geojson";
 import AirportMarkerSvg from "@/assets/airportMarker.svg";
 

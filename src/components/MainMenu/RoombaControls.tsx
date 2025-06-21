@@ -12,6 +12,7 @@ import WestRoundedIcon from "@mui/icons-material/WestRounded";
 import EastRoundedIcon from "@mui/icons-material/EastRounded";
 import { useEffect, useState } from "react";
 import useTabVisibility from "@/hooks/useTabVisibility";
+import { JSX } from "react";
 
 interface Props {
   exit: () => void;
