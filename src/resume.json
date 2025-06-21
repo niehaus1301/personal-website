@@ -23,8 +23,10 @@
       "endDate": null,
       "location": "Hamburg, Germany",
       "highlights": [
-        "Built a Next.js 13 app to automatically generate DSM matrices based on tools used in the flight physics department to showcase their dependencies, with features including a drag-and-drop JSON schema editor and OpenAPI export.",
-        "Developing a modern Web API for a PostgreSQL database storing raw flight test time-series data in Python and Flask, as part of a large SAFe project with joint teams across Hamburg, Toulouse, UK and India. The API supports CRUD operations and endpoints for specific use cases."
+        "Traveled weekly to a supplier in Munich to oversee the development of Airbus HBCplus, gaining insight from a developer standpoint.",
+        "Built a flight test parameter database using Python, FastAPI, and PostgreSQL.",
+        "Developed a collaborative workflow management tool with Next.js and MongoDB and deployed on AWS to help engineers identify and connect tools and scripts for parameter acquisition.",
+        "Built and rolled out an internal employee recognition tool using React and MongoDB for employees to share recognitions and appreciation."
       ],
       "companyLogoUrl": "airbusLogo.jpeg"
     },
@@ -36,16 +38,13 @@
       "endDate": "2023-05-31",
       "location": "Dusseldorf, Germany",
       "highlights": [
-        "Founded, developed and launched CGI’s internal startup Door James, a visitor registration SaaS solution to replace paper lists at reception (later transitioned to asset booking and office management solution due to COVID demands).",
-        "Developed and deployed a multi-cloud architecture for Door James (GCP & IONOS) to attract clients needing sovereign cloud options. Dockerized application to allow easier deployment to cloud providers. Moved from Google Cloud Build to GitLab CI/CD.",
-        "Traveled to multiple international clients to pitch Door James and launch trials (20+ external clients when left role).",
-        "Designed concept and coordinated development to extend Door James by an event management and ticketing platform. Flawlessly managed ticketing, registration and badge-printing at multiple in-person events with 500+ attendees each.",
-        "Created a Google Data Studio connector using Google Apps Script and MongoDB Atlas Data API to allow a BI team to build dashboards with Door James userdata.",
-        "Held talks externally and internally to share key learnings of Door James product development journey, with a strong focus on how to maintain a great balance.",
-        "Organized events on Meetup.com to increase CGIs presence in the local tech scene.",
-        "Pitched Door James in multiple c-level calls, and worked extensively with the CIO office to have Door James become CGIs global asset booking solution (now rolled out in 100+ offices with 35k users).",
-        "Actively contributed to backend code (Node.js, TypeScript, Mongoose, Express), infrastructure on GCP (App Engine, Cloud Functions, Compute Engine, Load Balancer, Cloud Storage), architecture and concepts for Door James.",
-        "Developed a retail customer journey for CGIs booth at Euroshop 2020. Connected dynamic e-ink price tags to programmatically adjust prices based on customers' food preference. Implemented a stock picking demo-case with Firebase Firestore and Hosting."
+        "Founded, developed, and launched Door James, a SaaS solution for visitor registration that evolved into an asset booking and office management platform.",
+        "Architected and deployed a multi-cloud solution (GCP & IONOS) for sovereign cloud clients, utilizing Docker and transitioning to GitLab CI/CD.",
+        "Designed and coordinated the development of an event management and ticketing platform extension for Door James, managing successful event operations for 500+ attendees.",
+        "Developed a Google Data Studio connector using Google Apps Script and MongoDB Atlas Data API to enable BI dashboard creation from Door James user data.",
+        "Pitched Door James in C-level discussions, contributing to its adoption as CGI's global asset booking solution across 100+ offices and 35k users.",
+        "Contributed to the backend development of Door James (Node.js, Mongoose, Express) and managed its GCP infrastructure (App Engine, Cloud Functions, Compute Engine, Load Balancer, Cloud Storage).",
+        "Developed a retail customer journey for Euroshop 2020, integrating dynamic e-ink price tags and a stock picking demo-case."
       ],
       "companyLogoUrl": "cgiLogo.jpeg"
     },
