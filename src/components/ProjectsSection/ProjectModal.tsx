@@ -7,7 +7,6 @@ import {
   Stack,
   Typography,
 } from "@mui/joy";
-import paulImg from "@/assets/paul.jpeg";
 import ProjectModalCarousel from "./ProjectModalCarousel";
 import ProjectChip from "./ProjectChip";
 import { Project } from "@/types/resume";

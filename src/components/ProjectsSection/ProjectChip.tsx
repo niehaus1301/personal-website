@@ -1,5 +1,5 @@
+import { Project } from "@/types/resume";
 import { Chip } from "@mui/joy";
-import { type Project } from "./ProjectCard";
 
 interface Props {
   project: Project;

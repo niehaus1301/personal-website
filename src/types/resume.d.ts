@@ -58,7 +58,7 @@ export interface Project {
   startDate: string;
   endDate?: string;
   description: string;
-  highlights: string[];
+  highlights?: string[];
   url?: string;
   images: string[];
   work?: string;

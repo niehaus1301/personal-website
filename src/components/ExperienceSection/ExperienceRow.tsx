@@ -1,6 +1,7 @@
 import { Grid } from "@mui/joy";
-import ExperienceCard, { Work } from "./ExperienceCard";
+import ExperienceCard from "./ExperienceCard";
 import { CSSProperties } from "react";
+import { Work } from "@/types/resume";
 
 interface Props {
   work: Work;

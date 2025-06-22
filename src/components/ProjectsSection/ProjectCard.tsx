@@ -11,7 +11,7 @@ import { useState } from "react";
 import ProjectModal from "./ProjectModal";
 import timeAgo from "@/utils/timeAgo";
 import ProjectChip from "./ProjectChip";
-import { Project } from "@/types/resume";
+import { type Project } from "@/types/resume";
 
 interface Props {
   project: Project;
