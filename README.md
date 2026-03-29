@@ -59,20 +59,6 @@ The following pages are consuming data from `resume.json`
 
 I did some research on how to maintain resume data automatically from LinkedIn. Unfortunately, LinkedIn doesn't provide a simple API to query profiles. While this is possible by using third-party services with paid subscriptions, I decided to rather maintain it manually.
 
-### My Flights
-
-To display the travel-map located at `/travelmap`, I built a script which pulls data from my personal [myFlightradar24 account](https://my.flightradar24.com/Niehaus1301). The flights need to be manually registered on the platform, but some post-flight information, such as the flown aircraft type and registration is automatically completed by Flightradar24 once available.
-
-#### Getting flights from myFlightradar24 to Mapbox <a name="myflightradar24-script"></a>
-
-myFlightradar24 provides the options to export all registered flights to a CSV file. However, there's no API to do that programmatically. As I think it's already too much to manually register my flights in myFlightradar24, the last thing I want to do is to manually download a CSV file and upload it to my personal website.
-
-Therefore, I've built a script ([`scripts/exportMyFlightradar24`](scripts/exportMyFlightradar24.js)), which fetches [my publically available profile](https://my.flightradar24.com/Niehaus1301), parses the contents and outputs a JSON file ([`src/assets/flights.json`](src/assets/flights.json)). The JSON file is then loaded into Mapbox by the travelmap React Component.
-
-In addition to the flown routes, I need to find out the coordinates of airports to render the map, as myFlightradar24 only returns the three letter IATA codes of the airports. I am using [AirLabs API](https://airlabs.com/) to query coordinates for the respective airport codoes. The data is then joined to deliver a complete `flights.json` file.
-
-There's a GitLab CI/CD job in [`.gitlab-ci.yml`](.gitlab-ci.yml) which triggers the script weekly to keep the data up-to-date.
-
 ## Spline
 
 I am using [Spline](https://spline.design/), a web-based 3D design tool to design the Room. It is then loaded into the React application using [@splinetool/react-spline](https://www.npmjs.com/package/@splinetool/react-spline).
@@ -94,12 +80,6 @@ Install dependencies
 
 ```bash
 npm install
-```
-
-Run the [myFlightradar24 export script](#myflightradar24-script)
-
-```bash
-npm run exportMyFlightradar24 <AIRLABS_API_KEY>
 ```
 
 Start the dev server

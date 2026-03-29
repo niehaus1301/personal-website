@@ -8,7 +8,7 @@ const LandingPage = lazy(() => import("@/components/LandingPage/LandingPage"));
 const Resume = lazy(() => import("@/components/Resume/Resume"));
 const Room = lazy(() => import("@/components/Room/Room"));
 const Terminal = lazy(() => import("@/components/Terminal/Terminal"));
-const TravelMap = lazy(() => import("@/components/TravelMap/TravelMap"));
+const FlightMap = lazy(() => import("@/components/FlightMap/FlightMap"));
 
 const {
   VITE_ROUTE_LANDING,
@@ -81,7 +81,7 @@ export default function App() {
               path={VITE_ROUTE_MAP}
               element={
                 <ActionComponentBox>
-                  <TravelMap />
+                  <FlightMap />
                 </ActionComponentBox>
               }
             />

@@ -25,11 +25,8 @@ jobs:
 
       - name: Build
         run: |
-          node ./scripts/exportMyFlightradar.js ${{ secrets.AIRLABS_API_KEY }}
           npm run build
           npm prune --omit=dev --legacy-peer-deps
-        env:
-          AIRLABS_API_KEY: ${{ secrets.AIRLABS_API_KEY }}
 
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0

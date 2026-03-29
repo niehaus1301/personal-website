@@ -57,7 +57,7 @@ export default function NavMenu({
         <ListItemDecorator>
           <PublicRoundedIcon />
         </ListItemDecorator>
-        Travel Map
+        Flight Map
       </MenuItem>
       <ListDivider />
       <MenuItem
